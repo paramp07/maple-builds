@@ -1,30 +1,26 @@
-// import { isValidSignature, SIGNATURE_HEADER_NAME } from '@sanity/webhook';
+import { parseBody } from "next-sanity/webhook"
 
-// const SANITY_WEBHOOK_SECRET = process.env.SANITY_WEBHOOK_SECRET;
+// Export the config from next-sanity to enable validating the request body signature properly
+export { config } from "next-sanity/webhook"
 
-// export default async function handler(req, res) {
-//   const signature = req.headers[SIGNATURE_HEADER_NAME];
-//   const isValid = isValidSignature(JSON.stringify(req.body), signature, SANITY_WEBHOOK_SECRET);
+export default async function revalidate(req, res) {
+  try {
+    const { isValidSignature, body } = await parseBody(
+      req,
+      process.env.SANITY_WEBHOOK_SECRET
+    )
 
-//   console.log(`===== Is the webhook request valid? ${isValid}`);
+    if (!isValidSignature) {
+      const message = "Invalid signature"
+      return res.status(401).json({ message, isValidSignature, body })
+    }
 
-//   // Validate signature
-//   if (!isValid) {
-//     res.status(401).json({ success: false, message: 'Invalid signature' });
-//     return;
-//   }
-
-//   try {
-//     const pathToRevalidate = req.body.slug.current;
-
-//     console.log(`===== Revalidating: ${pathToRevalidate}`);
-
-//     await res.revalidate(pathToRevalidate);
-
-//     return res.json({ revalidated: true });
-//   } catch (err) {
-//     // Could not revalidate. The stale page will continue to be shown until
-//     // this issue is fixed.
-//     return res.status(500).send('Error while revalidating');
-//   }
-// }
+    const staleRoute = `/${body.slug.current}`
+    await res.revalidate(staleRoute)
+    const message = `Updated route: ${staleRoute}`
+    return res.status(200).json({ message, body })
+  } catch (err) {
+    console.error(err)
+    return res.status(500).json({ message: err.message })
+  }
+}
