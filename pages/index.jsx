@@ -10,6 +10,7 @@ import Footer from '@/components/sections/Footer';
 import Header from "@/components/layout/main-home-header";
 import { getAllTestimonials } from "@/src/app/lib/sanity";
 import { getHomePage } from "@/src/app/lib/sanity";
+import TestTestimonial from "@/components/sections/TestTestmonial";
 
 
 function Home(props) {
