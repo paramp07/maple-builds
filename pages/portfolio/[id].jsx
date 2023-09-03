@@ -205,6 +205,7 @@ export async function getStaticPaths() {
     return {
       props: {
         project
-      }
+      },
+      revalidate: 10,
     }
   }
