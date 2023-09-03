@@ -1,12 +1,11 @@
 import Script from 'next/script'
-import script from '../../public/scripts/testimonial'
+
 
 export default function TestTestimonial() {
     return (
         <div class="slider">
             <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js'></script>
             <script src="jquery-3.6.4.min.js"></script>
-            <script src={script}></script>
             <div class="slider-wrapper flex">
             	<div class="slide flex">
             		<div class="slide-image slider-link prev"><img src="https://goranvrban.com/codepen/img2.jpg" /><div class="overlay"></div></div>
