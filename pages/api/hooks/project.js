@@ -14,9 +14,10 @@ const handler = async(req, res) => {
 
         const {slug} = req.body
 
+        await res.revalidate(`/portfolio/${slug}`)
         await res.revalidate(`/portfolio/remodels/`)
         await res.revalidate(`/portfolio/custom-homes/`)
-        await res.revalidate(`/portfolio/${slug}`)
+        
         
 
         console.log("slug: ", slug)
