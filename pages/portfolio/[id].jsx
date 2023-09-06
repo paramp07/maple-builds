@@ -27,17 +27,17 @@ export default function ProjectInfo(props) {
       }
 
     return (
-        <div className="flex items-center mt-8 flex-col w-full">
+        <div className="flex flex-col items-center w-full mt-8">
             {/* <div className="">
-                <img src='/images/wide-house3.jpg' alt="" className="h-full w-auto object-cover"/>
+                <img src='/images/wide-house3.jpg' alt="" className="object-cover w-auto h-full"/>
                 <Image
                   src="/images/wide-house3.jpg"
                   alt=""
-                  className="h-full w-auto object-cover"
+                  className="object-cover w-auto h-full"
                 />
             </div> */}
             <div className="w-full">
-                <div className="relative w-full h-screen object-cover">
+                <div className="relative object-cover w-full h-screen">
                     <Image
                       alt='Mountains'
                       src={urlFor(project.mainImage).url()}
@@ -68,27 +68,27 @@ function ProjectMetadata(props) {
         <div className="w-full mt-12">
             <div className="grid grid-cols-2 gap-y-4">
                 {meta.photography ? (
-                    <div className="text-center space-y-2">
-                        <h3 className="font-semibold text-2xl">Photography</h3>
-                        <p className="text-gray-950 underline">{meta.photography}</p>
+                    <div className="space-y-2 text-center">
+                        <h3 className="text-2xl font-semibold">Photography</h3>
+                        <p className="underline text-gray-950">{meta.photography}</p>
                     </div>
                 ) : null }
                 {meta.architecturalDesign ? (
-                    <div className="text-center space-y-2">
-                        <h3 className="font-semibold text-2xl">Architectural Design</h3>
-                        <p className="text-gray-950 underline">{meta.architecturalDesign}</p>
+                    <div className="space-y-2 text-center">
+                        <h3 className="text-2xl font-semibold">Architectural Design</h3>
+                        <p className="underline text-gray-950">{meta.architecturalDesign}</p>
                     </div>
                 ) : null }
                 {meta.interior ? (
-                    <div className="text-center space-y-2">
-                        <h3 className="font-semibold text-2xl">Interior</h3>
-                        <p className="text-gray-950 underline">{meta.interior}</p>
+                    <div className="space-y-2 text-center">
+                        <h3 className="text-2xl font-semibold">Interior</h3>
+                        <p className="underline text-gray-950">{meta.interior}</p>
                     </div>
                 ) : null }
                 {meta.landscape ? (
-                    <div className="text-center space-y-2">
-                        <h3 className="font-semibold text-2xl">Landscape</h3>
-                        <p className="text-gray-950 underline">{meta.landscape}</p>
+                    <div className="space-y-2 text-center">
+                        <h3 className="text-2xl font-semibold">Landscape</h3>
+                        <p className="underline text-gray-950">{meta.landscape}</p>
                     </div>
                 ) : null }
             </div>
@@ -100,7 +100,7 @@ function ProjectPhotosSection(props) {
     const {photos} = props
     
     return (
-        <div className="font-montserrat flex justify-center mt-14 w-full">
+        <div className="flex justify-center w-full font-montserrat mt-14">
             <div class="my-0 mx-4 w-full">
               <div class="grid grid-cols-1 m-0 p-0 gap-8 lg:grid-cols-2 xl:grid-cols-3 xl:gap-12" id="img-gallery">
                 {photos.map((photo) => (
@@ -164,7 +164,7 @@ function Photo(props) {
     return (
         <div class={`img grid ${vertical == 'true' ? 'row-span-2' : ''}`}>
                   {/* <div className="">
-                          <img src={`/images/${img}`} className="h-full max-w-full align-middle object-cover" alt="Image" />
+                          <img src={`/images/${img}`} className="object-cover h-full max-w-full align-middle" alt="Image" />
                   </div> */}
                   <div className="relative aspect-[18/9]  object-cover">
                     <Image
@@ -197,15 +197,15 @@ export async function getStaticPaths() {
   }
   
   
-  export async function getStaticProps(context) {
-    const { params } = context;
-    const projectSlug = params.id
-    
-    const project = await getEventBySlug(projectSlug);
-    return {
-      props: {
-        project
-      },
-      revalidate: 10,
-    }
+export async function getStaticProps(context) {
+  console.log("revalidating")
+  const { params } = context;
+  const projectSlug = params.id
+  
+  const project = await getEventBySlug(projectSlug);
+  return {
+    props: {
+      project
+    },
   }
+}
