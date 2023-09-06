@@ -13,12 +13,9 @@ const handler = async(req, res) => {
 
 
         const {slug} = req.body
-
         await res.revalidate(`/portfolio/${slug}`)
         await res.revalidate(`/portfolio/remodels/`)
         await res.revalidate(`/portfolio/custom-homes/`)
-        
-        
 
         console.log("slug: ", slug)
         res.status(200).json({msg: 'Porduct pages revlaidated.'});
