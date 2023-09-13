@@ -4,9 +4,21 @@ import { getPaths} from "@/src/app/lib/sanity"
 import { getEventBySlug } from "@/src/app/lib/sanity";
 import Image from 'next/image';
 import { urlFor } from "@/src/app/lib/urlFor";
+import { useRouter } from "next/router";
 
 
 export default function ProjectInfo(props) {
+    const router = useRouter()
+
+    if (router.isFallback) {
+        return (
+            <div>
+                Loading...
+            </div>
+        )
+    }
+
+
     const { project } = props
     console.log(project)
 
