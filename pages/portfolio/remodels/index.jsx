@@ -24,6 +24,5 @@ export async function getStaticProps() {
         props: {
             projects, remodelsPage
         },
-        revalidate: process.env.SANITY_WEBHOOK_SECRET ? undefined : 60,
     }
 }
