@@ -96,6 +96,15 @@ function ProjectMetadata(props) {
     )
 }
 
+ProjectMetadata.defaultProps = {
+    meta: {
+        photography: " ",
+        architecturalDesign: " ",
+        interior: " ",
+        landscape: " ",
+    }
+}
+
 function ProjectPhotosSection(props) {
     const {photos} = props
     
