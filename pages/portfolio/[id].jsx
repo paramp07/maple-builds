@@ -187,14 +187,7 @@ Photo.defaultProps = {
 
 // SERVER ACTIONS SSG
 
-export async function getStaticPaths() {
-    const paths = await getPaths();
-  
-    return {
-      paths: paths.map((slug) => ({params: {id: slug}})),
-      fallback: false,
-    }
-  }
+
   
   
 export async function getStaticProps(context) {
@@ -207,5 +200,15 @@ export async function getStaticProps(context) {
     props: {
       project
     },
+    revalidate: process.env.SANITY_WEBHOOK_SECRET ? undefined : 60,
+  }
+}
+
+export async function getStaticPaths() {
+  const paths = await getPaths();
+
+  return {
+    paths: paths.map((slug) => ({params: {id: slug}})),
+    fallback: true,
   }
 }

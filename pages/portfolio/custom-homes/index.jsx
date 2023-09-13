@@ -23,6 +23,7 @@ export async function getStaticProps() {
     return {
         props: {
             projects, customHomesPage
-        }
+        },
+        revalidate: process.env.SANITY_WEBHOOK_SECRET ? undefined : 60,
     }
 }
