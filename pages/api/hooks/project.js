@@ -1,6 +1,7 @@
 import { SIGNATURE_HEADER_NAME, isValidSignature } from "@sanity/webhook";
 
 const handler = async(req, res) => {
+    console.log(req.body)
     try {
         const signature = req.headers[SIGNATURE_HEADER_NAME]
         if (!isValidSignature(
