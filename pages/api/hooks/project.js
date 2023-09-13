@@ -13,8 +13,6 @@ const handler = async(req, res) => {
 
         const {slug} = req.body
         await res.revalidate(`/portfolio/${slug}`)
-
-        if ()
         await res.revalidate(`/portfolio/remodels/`)
         await res.revalidate(`/portfolio/custom-homes/`)
         console.log("slug:", slug)
