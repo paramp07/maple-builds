@@ -6,8 +6,9 @@ import customHomeBuilds from './customHomeBuilds'
 import remodels from './remodels'
 import testimonials from './testimonials'
 import about from './about'
+import processes from './processes'
 
-export const schemaTypes = [projects, team, testimonials, home, about, process, customHomeBuilds, remodels]
+export const schemaTypes = [projects, team, testimonials, home, about, process, processes, customHomeBuilds, remodels]
 
 
 
