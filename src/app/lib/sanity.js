@@ -80,6 +80,11 @@ export async function getProcessPage() {
     return processPage
 }
 
+export async function getProcesses() {
+    const processes = await client.fetch(`*[_type == "processes"]`)
+    return processes
+}
+
 // Process Page
 
 // Custom Home Builds Page

@@ -1,11 +1,11 @@
 import CTA from "@/components/sections/CTA";
 import IntroSectionBackground from "@/components/sections/IntroSectionBackground";
 import ShortInfoImage from "@/components/sections/ShortInfoImage";
-import { getProcessPage } from "@/src/app/lib/sanity";
+import { getProcessPage, getProcesses } from "@/src/app/lib/sanity";
+import { urlFor } from "@/src/app/lib/urlFor";
 
 export default function ProcessPage(props) {
-  const {processPage} = props
-  console.log(processPage)
+  const {processPage, processes} = props
 
   return (
       <div>
@@ -14,22 +14,35 @@ export default function ProcessPage(props) {
           paragraph={processPage.ourProcessParagraph}
           image={processPage.ourProcessBackgroundImage}
           />
-          <ProcessSection />
+          <ProcessSection processes={processes} />
           <CTA />
       </div>
   );
 }
 
 
-function ProcessSection() {
+function ProcessSection(props) {
+  const {processes} = props
+
+  const process = processes.map((process) => (
+    <Process
+    key={process._id}
+    image={process.processImage}
+    heading={process.processHeader}
+    paragraph={process.processParagraph}
+    />
+))
+
   return (
     <main className="contain xl:mx-10">
       <section className="features flex flex-col items-center">
-        <Process heading='Testing New Heading' image='square-house.jpg'/>
+        {/* <Process heading='Testing New Heading' image='square-house.jpg'/>
         <Process />
         <Process />
         <Process />
-        <Process />
+        <Process /> */
+        process
+        }
       </section>
       <style>
         {`
@@ -97,7 +110,7 @@ function Process(props) {
   return (
     <section className="feature-pair flex flex-col space-y-6 mx-8 max-w-[600px] lg:flex-row lg:max-w-none">
       <article className="feature feature--image shadow-lg  ">
-        <img src={`images/${image}`} alt="Feature Screenshot" className="object-cover w-full h-[450px]" />
+        <img src={urlFor(image).url()} className="object-cover w-full h-[450px]" />
       </article>
       <article className="feature feature--text space-y-2">
         <h4 className="font-semibold text-3xl">{heading}</h4>
@@ -117,10 +130,11 @@ Process.defaultProps = {
 
 export async function getStaticProps() {
   const processPage = await getProcessPage();
+  const processes = await getProcesses();
 
   return {
       props: {
-          processPage
+          processPage, processes
       }
   }
 }
