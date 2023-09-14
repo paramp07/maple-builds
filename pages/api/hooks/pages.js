@@ -11,7 +11,8 @@ const handler = async(req, res) => {
         ))return res.status(401).json({msg:'Invalid Request!!'})
 
 
-        await res.revalidate(`/about`)
+        await res.revalidate(`/process`)
+        await res.revalidate(`/`)
         res.status(200).json({msg: 'Porduct pages revlaidated.'});
 
     } catch (error) {
