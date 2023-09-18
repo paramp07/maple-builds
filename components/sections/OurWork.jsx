@@ -1,5 +1,6 @@
 import { urlFor } from "@/src/app/lib/urlFor";
 import TextInfo from "../layout/sub-sections/TextInfo"
+import Link from 'next/link'
 
 export default function OurWorkSection(props) {
     const {tag, header, paragraph, remodelImage, customHomeImage} = props;
@@ -20,18 +21,18 @@ export default function OurWorkSection(props) {
                         
                     </div>
                     <div className="flex flex-col items-center w-full gap-12 md:flex-row md:gap-6 md:px-6">
-                        <div className="h-[500px] w-[90%] md:max-h-[370px] md:w-full living-room cursor-pointer">
+                        <Link href='/portfolio/remodels' className="h-[500px] w-[90%] md:max-h-[370px] md:w-full living-room cursor-pointer">
                             <div class="overlay"></div>
                             <div class="text-container">
                                 <h4 class="info-heading text-3xl font-semibold">Remodels</h4>
                             </div>
-                        </div>
-                        <div className="h-[500px] w-[90%] md:max-h-[370px] md:w-full house cursor-pointer">
+                        </Link>
+                        <Link href="/portfolio/custom-homes" className="h-[500px] w-[90%] md:max-h-[370px] md:w-full house cursor-pointer">
                                 <div class="overlay"></div>
                                 <div class="text-container">
                                     <h4 class="info-heading text-3xl font-semibold">Custom Home Builds</h4>
                                 </div>
-                        </div>
+                        </Link>
                     </div>
                 </div>
             </div>

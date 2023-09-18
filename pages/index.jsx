@@ -48,12 +48,13 @@ function Home(props) {
         customHomeImage={homepage.customHomesSectionImage}
 
       />
-      <Testimonials
+      
+      {/* <Testimonials
        testimonials={testimonials}
        tag={homepage.testimonialSectionTag}
       header={homepage.testimonialSectionHeader}
       paragraph={homepage.testimonialSectionParagraph}
-       />
+       /> */}
       <CTA />
       <style>
         {`

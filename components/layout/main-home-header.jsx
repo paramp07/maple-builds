@@ -57,7 +57,7 @@ export default function Header() {
             <PopoverDemo home={true}>
             </PopoverDemo>
           </li>
-          <li className="px-6 py-2 font-semibold text-white transition duration-300 ease-linear bg-transparent border-[3px] border-white rounded hover:bg-white hover:text-black hover:border-transparent">
+          <li className="px-6 py-2 font-semibold text-white transition duration-300 ease-linear bg-transparent border-[2px] border-white hover:bg-white hover:text-black hover:border-transparent">
             <a href="/contact" className="nav-button">CONTACT</a>
           </li>
         </ul>
@@ -71,6 +71,7 @@ export default function Header() {
       
       .hideMenuNav {
         display: none;
+        animation: fadeOut .2s;
       }
       .showMenuNav {
         display: block;
@@ -85,8 +86,22 @@ export default function Header() {
         flex-direction: column;
         justify-content: space-evenly;
         align-items: center;
+        animation: fadeIn .2s;
       }
+
+      @keyframes fadeIn {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+      }
+      @keyframes fadeOut {
+        100% { opacity: 1; }
+        0% { opacity: 0; }
+        
+      }
+      
+      
     `}</style>
     </div>
   );
 }
+

@@ -62,7 +62,7 @@ function Project(props) {
                   <div className="aspect-square w-full">
                           {/* <img src={urlFor(image).url()} className="object-cover h-full max-w-full align-middle" alt="Image" /> */}
                           {/* <img src={`/images/wide-house3.jpg`} className="object-cover h-full max-w-full align-middle" alt="Image" /> */}
-                          <Image 
+                          {/* <Image 
                             src={urlFor(image).url()}
                             alt={name}
                             // width={getImageDimensions(image).width}
@@ -71,9 +71,14 @@ function Project(props) {
                             style={{objectFit: "cover"}}
                             placeholder="blur"
                             blurDataURL={urlFor(image).width(24).height(24).blur(10).url()}
+                           /> */}
+                           <img
+                             src={urlFor(image).url()}
+                             className="object-cover h-full hover:scale-150"
                            />
+
                   </div>
-                  <div className="absolute inset-0  bg-black  bg-opacity-50 opacity-0 hover:opacity-100 transition-all duration-[200ms]">
+                  <div className="absolute inset-0  bg-black  bg-opacity-50 opacity-0 hover:opacity-100  transition-all duration-[200ms]">
                       <div className="flex items-center justify-center h-full p-4">
                           <p className="text-gray-100 text-[250%] text-center font-bold md:text-3xl lg:text-3xl">{name}</p>
                       </div>
