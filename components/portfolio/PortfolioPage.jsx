@@ -38,7 +38,7 @@ function ProjectListSection(props) {
 
     return (
         <div className="flex justify-center font-montserrat w-full">
-              <ul class="flex flex-wrap list-none mx-4 p-0 w-full lg:mx-12">
+              <ul class="flex flex-wrap list-none p-0 w-full lg:mx-12">
                 {projects.map((project) => (
                     <Project
                     key={project._id}

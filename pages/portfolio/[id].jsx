@@ -184,17 +184,17 @@ function Photo(props) {
 
     return (
         <div class={`img grid ${vertical == 'true' ? 'row-span-2' : ''}`}>
-                  {/* <div className="">
-                          <img src={`/images/${img}`} className="object-cover h-full max-w-full align-middle" alt="Image" />
-                  </div> */}
-                  <div className="relative aspect-[18/9]  object-cover">
+                  <div className="">
+                          <img src={urlFor(image).url()} className="object-cover h-full max-w-full align-middle" alt="Image" />
+                  </div>
+                  {/* <div className="relative aspect-[18/14]  object-cover">
                     <Image
                       alt='Mountains'
                       src={urlFor(image).url()}
                       layout='fill'
                       objectFit='cover'
                     />
-                  </div>
+                  </div> */}
         </div>
 
     )

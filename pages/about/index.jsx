@@ -120,7 +120,7 @@ function Service(props) {
     return (
         <div className="w-full aspect-square flex flex-col justify-between px-7 py-10 m-auto text-white max-w-[420px] lg:px-4 lg:py-5" style={backgroundStyle}>
             <h4 className="text-4xl font-semibold md:text-4xl lg:text-[1.6rem] xl:text-[2rem]">{children}</h4>
-            <a href="#" class="group text-gray-100 transition duration-300 text-2xl w-fit md:text-xl lg:text-[1.2rem]">
+            <a href="/contact" class="group text-gray-100 transition duration-300 text-2xl w-fit md:text-xl lg:text-[1.2rem]">
                 Learn More
                 <span class="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-white opacity-70"></span>
             </a>
