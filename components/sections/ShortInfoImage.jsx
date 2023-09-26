@@ -2,7 +2,7 @@ import { urlFor } from "@/src/app/lib/urlFor";
 import Image from "next/image"
 
 export default function ShortInfoImage(props) {
-    const {children, heading, image, button1, button2} = props;
+    const {children, heading, image, button1, button1_link, button2_link, button2} = props;
 
     const imageUrl = urlFor(image).url()
 
@@ -20,10 +20,10 @@ export default function ShortInfoImage(props) {
                     </p>
                     <div className="flex mt-5 space-x-4 font-montserrat">
                         <div className="flex">
-                            <button className="px-4 py-2 font-bold text-white bg-gray-950 hover:bg-gray-800">{button1}</button>
+                            <button className="px-4 py-2 font-bold text-white bg-gray-950 hover:bg-gray-800"><a href={button1_link}>{button1}</a></button>
                         </div>
                         <div className="flex">
-                            <button className="font-semibold">{button2}</button>
+                            <button className="font-semibold"><a href={button2_link}>{button2}</a></button>
                         </div>
                     </div>
                 </div>

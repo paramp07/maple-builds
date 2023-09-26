@@ -49,12 +49,7 @@ function Home(props) {
 
       />
       
-      {/* <Testimonials
-       testimonials={testimonials}
-       tag={homepage.testimonialSectionTag}
-      header={homepage.testimonialSectionHeader}
-      paragraph={homepage.testimonialSectionParagraph}
-       /> */}
+      {/*  */}
       <CTA />
       <style>
         {`

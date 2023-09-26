@@ -19,7 +19,9 @@ function AboutPage(props) {
                 heading={aboutPage.ctaHeader}
                 image={aboutPage.contactUsImage}
                 button1="Contact Us"
+                button1_link="/contact"
                 button2="Our Work"
+                button2_link='/'
             >
             {aboutPage.ctaParagraph}
             </ShortInfoImage>

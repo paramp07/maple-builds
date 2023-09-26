@@ -24,13 +24,13 @@ export default function OurWorkSection(props) {
                         <Link href='/portfolio/remodels' className="h-[500px] w-[90%] md:max-h-[370px] md:w-full living-room cursor-pointer">
                             <div class="overlay"></div>
                             <div class="text-container">
-                                <h4 class="info-heading text-3xl font-semibold">Remodels</h4>
+                                <h4 class="info-heading text-5xl md:text-3xl font-semibold">Remodels</h4>
                             </div>
                         </Link>
                         <Link href="/portfolio/custom-homes" className="h-[500px] w-[90%] md:max-h-[370px] md:w-full house cursor-pointer">
                                 <div class="overlay"></div>
                                 <div class="text-container">
-                                    <h4 class="info-heading text-3xl font-semibold">Custom Home Builds</h4>
+                                    <h4 class="info-heading text-5xl md:text-3xl font-semibold" id="fix-margin">Custom Home Builds</h4>
                                 </div>
                         </Link>
                     </div>
@@ -85,6 +85,8 @@ export default function OurWorkSection(props) {
                         margin: 0;
                         transition: all ease .4s;
                       }
+
+                
                       
                       .info-paragraph {
                         margin-top: 10px;
