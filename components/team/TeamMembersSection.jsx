@@ -30,6 +30,7 @@ export default function TeamMembersSection(props) {
                       image={member.profilePicture}
                       name={member.memberName}
                       jobTitle={member.memberPosition}
+                      description={member.description}
                       />
                   ))}
               </ul>

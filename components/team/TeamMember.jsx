@@ -5,7 +5,7 @@ import * as Accordion from '@radix-ui/react-accordion';
 import { ChevronDownIcon } from '@radix-ui/react-icons';
 
 export default function TeamMember(props) {
-    const {name, jobTitle, image} = props
+    const {name, jobTitle, image, description} = props
 
     return (
         <li class="cards_item w-full flex p-[1rem] sm:w-[50%] md:w-[33.3333%] ">
@@ -22,7 +22,7 @@ export default function TeamMember(props) {
               <h2 class="card_title text-black text-lg font-semibold tracking-wider uppercase m-0">{name}</h2>
               <p class="card_text text-black text-sm leading-6 mb-5 font-normal">{jobTitle}</p>
               </div>
-              <button class="btn card_btn text-gray-900 p-[.8rem] text-sm uppercase rounded font-light block w-full cursor-pointer border border-solid border-zinc-500 border-opacity-90 bg-transparent hover:bg-zinc-500 hover:text-zinc-100 transition-all">Read More</button>
+              <AccordionDemo description={description} />
             </div>
           </div>
         </li>
@@ -43,3 +43,67 @@ export default function TeamMember(props) {
         // </li>
     )
 }
+
+function AccordionDemo(props) {
+  const {description} = props
+  return (
+    <Accordion.Root
+    className=" text-gray-900 p-[.1rem] text-sm rounded font-light block w-full cursor-pointer border border-solid border-zinc-500 border-opacity-90 bg-transparent"
+    type="single"
+    defaultValue="item-1"
+    collapsible
+  >
+    <AccordionItem value="item-1">
+      <AccordionTrigger>Read More</AccordionTrigger>
+      <AccordionContent>{description}</AccordionContent>
+    </AccordionItem>
+  </Accordion.Root>
+  )
+  
+};
+
+const AccordionItem = React.forwardRef(({ children, className, ...props }, forwardedRef) => (
+  <Accordion.Item
+    className={classNames(
+      '',
+      className
+    )}
+    {...props}
+    ref={forwardedRef}
+  >
+    {children}
+  </Accordion.Item>
+));
+
+const AccordionTrigger = React.forwardRef(({ children, className, ...props }, forwardedRef) => (
+  <Accordion.Header className="flex">
+    <Accordion.Trigger
+      className={classNames(
+        'text-violet11 shadow-mauve6 group flex h-[45px] flex-1 cursor-default items-center justify-between bg-white px-5 text-[15px] leading-none outline-none',
+        className
+      )}
+      {...props}
+      ref={forwardedRef}
+    >
+      {children}
+      <ChevronDownIcon
+        className="text-violet10 ease-[cubic-bezier(0.87,_0,_0.13,_1)] transition-transform duration-300 group-data-[state=open]:rotate-180"
+        aria-hidden
+      />
+    </Accordion.Trigger>
+  </Accordion.Header>
+));
+
+const AccordionContent = React.forwardRef(({ children, className, ...props }, forwardedRef) => (
+  <Accordion.Content
+    className={classNames(
+      'text-mauve11 bg-mauve2 data-[state=open]:animate-slideDown data-[state=closed]:animate-slideUp overflow-hidden text-[15px]',
+      className
+    )}
+    {...props}
+    ref={forwardedRef}
+  >
+    <div className="py-[15px] px-5">{children}</div>
+  </Accordion.Content>
+));
+
