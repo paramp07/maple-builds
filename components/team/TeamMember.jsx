@@ -1,4 +1,8 @@
 import { urlFor } from "@/src/app/lib/urlFor"
+import React from 'react';
+import classNames from 'classnames';
+import * as Accordion from '@radix-ui/react-accordion';
+import { ChevronDownIcon } from '@radix-ui/react-icons';
 
 export default function TeamMember(props) {
     const {name, jobTitle, image} = props

@@ -85,6 +85,16 @@ export default function Header() {
         justify-content: space-evenly;
         align-items: center;
       }
+
+      @keyframes fadeIn {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+      }
+      @keyframes fadeOut {
+        100% { opacity: 1; }
+        0% { opacity: 0; }
+        
+      }
     `}</style>
     </div>
   );
