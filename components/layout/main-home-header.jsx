@@ -6,7 +6,16 @@ import HamburgerMenuOpen from "../sections/HamburgerMenuOpen";
 import PopoverDemo from "./sub-sections/PopoverPortfolio";
 
 export default function Header() {
-  const [isNavOpen, setIsNavOpen] = useState(false); // initiate isNavOpen state with false
+  const [isNavOpen, setIsNavOpen] = useState(false);
+  const [isScrollbarHidden, setIsScrollbarHidden] = useState(false);
+
+  const handleButtonClick = () => {
+    setIsNavOpen(!isNavOpen);
+  };
+
+  const hideScrollbar = () => {
+    setIsScrollbarHidden(!isScrollbarHidden);
+  };
 
   return (
       <div className="absolute flex items-center justify-between w-full px-8 py-2 mx-auto ">
@@ -17,7 +26,10 @@ export default function Header() {
         <section className="flex MOBILE-MENU lg:hidden">
           <div
             className="space-y-[6px] HAMBURGER-ICON"
-            onClick={() => setIsNavOpen((prev) => !prev)} // toggle isNavOpen state on click
+            onClick={() => {
+              handleButtonClick();
+              hideScrollbar();
+            }}
           >
             <span className="block h-0.5 w-8 bg-gray-100"></span>
             <span className="block h-0.5 w-8 bg-gray-100"></span>
@@ -27,7 +39,10 @@ export default function Header() {
           <div className={isNavOpen ? "showMenuNav" : "hideMenuNav"}>
             <div
               className="absolute top-0 right-0 px-8 py-8 CROSS-ICON"
-              onClick={() => setIsNavOpen(false)}
+              onClick={() => {
+                handleButtonClick();
+                hideScrollbar();
+              }}
             >
               <svg
                 className="w-8 h-8 text-gray-600"
@@ -62,6 +77,16 @@ export default function Header() {
           </li>
         </ul>
     </nav>
+      
+    {isScrollbarHidden && (
+        <style>
+          {`
+            body {
+              overflow: hidden;
+            }
+          `}
+        </style>
+      )}
 
       <style>{`
 
@@ -73,9 +98,12 @@ export default function Header() {
         display: none;
         animation: fadeOut .2s;
       }
+      
+
+
       .showMenuNav {
         display: block;
-        position: absolute;
+        position: fixed;
         width: 100%;
         height: 100vh;
         top: 0;
@@ -88,7 +116,6 @@ export default function Header() {
         align-items: center;
         animation: fadeIn .2s;
       }
-
       @keyframes fadeIn {
         0% { opacity: 0; }
         100% { opacity: 1; }
