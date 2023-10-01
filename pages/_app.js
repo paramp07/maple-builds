@@ -1,5 +1,8 @@
 import Layout from '@/components/layout/layout'
 import '@/styles/globals.css'
+import { DefaultSeo } from 'next-seo'
+
+import SEO from "../next-seo.config"
 
 
 // Your JavaScript/TypeScript code where you initialize and use Slick carousel goes here
@@ -7,8 +10,11 @@ import '@/styles/globals.css'
 
 export default function App({ Component, pageProps }) {
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <>
+      <DefaultSeo {...SEO} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </>
   )
 }

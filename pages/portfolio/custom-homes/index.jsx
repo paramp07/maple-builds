@@ -1,11 +1,17 @@
 import PortfolioPage from "@/components/portfolio/PortfolioPage";
 import { getAllCustomHomeBuilds, getCustomHomeBuildsPage } from "@/src/app/lib/sanity";
+import { NextSeo } from "next-seo";
 
 export default function CustomHomesPortfolio(props) {
+    const SEO = {
+        title: 'Custom Homes',
+        description: 'Custom Homes built by Maple Builds',
+    }
     const { projects, customHomesPage } = props;
 
     return (
         <>
+            <NextSeo {...SEO} />
             <PortfolioPage
              isRemodels={false} 
              projects={projects} 

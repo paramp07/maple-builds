@@ -5,11 +5,11 @@ import { getEventBySlug } from "@/src/app/lib/sanity";
 import Image from 'next/image';
 import { urlFor } from "@/src/app/lib/urlFor";
 import { useRouter } from "next/router";
+import { NextSeo } from "next-seo";
 
 
 export default function ProjectInfo(props) {
     const router = useRouter()
-
     if (router.isFallback) {
         return (
             <div>
@@ -20,7 +20,16 @@ export default function ProjectInfo(props) {
 
 
     const { project } = props
-    console.log(project)
+
+    const SEO = {
+        title: `${project.title} | Maple Builds`,
+        description: `${project.description}`,
+        opeGraph: {
+            title: `${project.title}`,
+            description: `${project.description}`,
+        },
+        
+    }
 
     const projectContributers = {
         photography: project.photographer,
@@ -39,6 +48,8 @@ export default function ProjectInfo(props) {
       }
 
     return (
+        <>
+        <NextSeo {...SEO} />
         <div className="flex flex-col items-center w-full mt-8">
             {/* <div className="">
                 <img src='/images/wide-house3.jpg' alt="" className="object-cover w-auto h-full"/>
@@ -69,6 +80,7 @@ export default function ProjectInfo(props) {
             <ProjectPhotosSection photos={project.Images} />
             <CTA />
         </div>
+        </>
     )
 }
 

@@ -10,10 +10,20 @@ import CTA from "@/components/sections/CTA";
 import { getAllTeamMembers } from "@/src/app/lib/sanity";
 import { getAboutPage } from "@/src/app/lib/sanity";
 import { urlFor } from "@/src/app/lib/urlFor";
+import { NextSeo } from "next-seo";
 
 function AboutPage(props) {
     const {members, aboutPage} = props
+
+    const SEO = {
+        title: 'About',
+        description: 'About Maple Builds',
+    }
+
+
     return (
+        <>
+        <NextSeo {...SEO} />
         <div className="mt-2">
             <ShortInfoImage 
                 heading={aboutPage.ctaHeader}
@@ -46,6 +56,7 @@ function AboutPage(props) {
             />
             <CTA></CTA>
         </div>
+        </>
     )
 }
 

@@ -3,11 +3,18 @@ import IntroSectionBackground from "@/components/sections/IntroSectionBackground
 import ShortInfoImage from "@/components/sections/ShortInfoImage";
 import { getProcessPage, getProcesses } from "@/src/app/lib/sanity";
 import { urlFor } from "@/src/app/lib/urlFor";
+import { NextSeo } from "next-seo";
 
 export default function ProcessPage(props) {
   const {processPage, processes} = props
+  const SEO = {
+    title: 'Process',
+    description: 'Learn about our Process',
+}
 
   return (
+    <>
+      <NextSeo {...SEO} />
       <div>
           <IntroSectionBackground
           header={processPage.ourProcessHeader}
@@ -17,6 +24,7 @@ export default function ProcessPage(props) {
           <ProcessSection processes={processes} />
           <CTA />
       </div>
+    </>
   );
 }
 
