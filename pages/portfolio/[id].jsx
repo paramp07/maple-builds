@@ -21,15 +21,7 @@ export default function ProjectInfo(props) {
 
     const { project } = props
 
-    const SEO = {
-        title: `${project.title} | Maple Builds`,
-        description: `${project.description}`,
-        opeGraph: {
-            title: `${project.title}`,
-            description: `${project.description}`,
-        },
-        
-    }
+    
 
     const projectContributers = {
         photography: project.photographer,
@@ -46,6 +38,16 @@ export default function ProjectInfo(props) {
           </div>
         );
       }
+
+    const SEO = {
+        title: `${project.title} | Maple Builds`,
+        description: `${project.description}`,
+        opeGraph: {
+            title: `${project.title}`,
+            description: `${project.description}`,
+        },
+        
+    }
 
     return (
         <>
