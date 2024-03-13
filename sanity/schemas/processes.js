@@ -25,7 +25,7 @@ export default defineType({
     defineField({
       name: 'processParagraph',
       title: 'Process Paragraph',
-      type: 'array',
+      type: 'text',
       validation: (Rule) => Rule.required(),
     }),
   ],
