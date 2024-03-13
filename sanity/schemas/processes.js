@@ -26,7 +26,6 @@ export default defineType({
       name: 'processParagraph',
       title: 'Process Paragraph',
       type: 'array',
-      of: [{type:'block'}],
       validation: (Rule) => Rule.required(),
     }),
   ],
