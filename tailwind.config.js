@@ -11,6 +11,8 @@ module.exports = {
   theme: {
     fontFamily: {
       'montserrat': ['montserrat', 'sans-serif'],
+      'raleway': ['raleway', 'montserrat'],
+      'proxima': ['proxima-nova', 'sans-serif'],
        // Ensure fonts with spaces have " " surrounding it.
     },
     extend: {

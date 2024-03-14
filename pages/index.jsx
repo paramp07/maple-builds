@@ -11,6 +11,7 @@ import Header from "@/components/layout/main-home-header";
 import { getAllTestimonials } from "@/src/app/lib/sanity";
 import { getHomePage } from "@/src/app/lib/sanity";
 import TestTestimonial from "@/components/sections/TestTestmonial";
+import ImageGallery from "react-image-gallery";
 
 
 function Home(props) {
@@ -35,7 +36,8 @@ function Home(props) {
             //   - we want this slide to not be able to grow or shrink and take up 100% width of the viewport.
             <div className="relative h-64 flex-[0_0_100%]" key={i}>
               {/* use object-cover + fill since we don't know the height and width of the parent */}
-              <Image src={src} fill className="object-cover" alt="alt" />
+              {/* <Image src={src} fill className="object-cover" alt="alt" /> */}
+              
             </div>
           );
         })}

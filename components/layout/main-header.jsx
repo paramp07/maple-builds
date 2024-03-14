@@ -8,7 +8,7 @@ export default function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false); 
 
   return (
-      <div className="relative z-50 flex items-center justify-between w-full px-8 py-2 mx-auto header border-b-2 border-slate-100">
+      <div className="relative z-50 flex items-center justify-between w-full px-8 py-2 mx-auto border-b-2 header border-slate-100">
       <a href="/">
         <img src='/images/black-logo.svg' className="w-[6rem]" alt="logo" />
       </a>
@@ -64,9 +64,6 @@ export default function Header() {
 
       <style>{`
 
-      .nav-items a:hover:not(.nav-button) {
-        color: gray;
-      }
       
       .hideMenuNav {
         display: none;
