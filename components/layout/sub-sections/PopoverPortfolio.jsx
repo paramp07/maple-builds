@@ -5,8 +5,8 @@ function PopoverDemo(props) {
 
   return (
     <div class="popover__wrapper">
-      <div className="flex items-center portfolio">
-        <a className="cursor-default nav-button">PORTFOLIO</a>
+      <div className="flex items-center portfolio nav-button" id="portfolio-btn">
+        <a className="cursor-pointer">PORTFOLIO</a>
         <div className="ml-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -24,25 +24,28 @@ function PopoverDemo(props) {
           </svg>
         </div>
       </div>
-      <div class="fade popover__content top-[5.2rem] left-0 z-[10000] bg-white border-t-3 border-slate-950 flex flex-col">
+      <div class="fade popover__content top-[4.2rem] left-0 z-[10000] bg-gray-100 border-t-4 border-gray-900 flex flex-col font-proxima font-semibold">
         <a
           href="/portfolio/custom-homes"
-          class="popover__message flex items-center transition-all duration-300 hover:mx-5 text-left text-[1rem] w-full mx-3 items-center cursor-pointer"
+          class="popover__message flex items-center transition-all duration-300 hover:mx-4 px-[4px] py-[12px] text-left text-[1rem] w-full mx-3 items-center cursor-pointer text-gray-800"
         >
-          Custom Homes
+          CUSTOM HOMES
         </a>
-        <hr></hr>
+        <hr className="bg-gray-900 h-[2px] opacity-20"></hr>
         <a
           href="/portfolio/remodels"
-          class="popover__message flex items-center text-left text-[1rem] w-full mx-3 items-center cursor-pointer"
+          class="popover__message flex items-center transition-all duration-300 hover:mx-4 px-[4px] py-[12px] text-left text-[1rem] w-full mx-3 items-center cursor-pointer text-gray-800"
         >
-          Remodels
+          REMODELS
         </a>
       </div>
       <style>
         {`
 
-      
+      #portfolio-btn {
+        display: flex;
+        flex-direction: row;
+      }
       
       popover__wrapper a {
         text-decoration: none;
@@ -77,7 +80,6 @@ function PopoverDemo(props) {
       }
       .popover__message {
         text-align: center;
-        color: ${home ? "#1f1f1f" : "#1f1f1f"}
       }
 
       

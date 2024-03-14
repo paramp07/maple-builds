@@ -104,14 +104,14 @@ export default function Header() {
           </nav>
           <a href="/" className="lg:w-1/3 ">
             <img
-              src="images/white-logo-alt2.svg"
-              className="w-[10rem] mx-auto"
+              src="images/white-logo.svg"
+              className="w-[7rem] mx-auto my-2"
               alt="logo"
             />
           </a>
           <div className="justify-end hidden lg:w-1/3 lg:flex">
             <div className="px-6 py-2 font-proxima font-semibold text-white transition duration-300 ease-linear bg-transparent border-[2px] border-white hover:bg-white hover:text-black hover:border-transparent">
-              <a href="/contact" className=" nav-button">
+              <a href="/contact" className="contact-button">
                 CONTACT
               </a>
             </div>
@@ -130,13 +130,42 @@ export default function Header() {
           <style>{`
 
       .nav-button {
-        padding: 1.7rem 0 1.7rem 0;
+        padding: .7rem 0 .7rem 0;
         height: 100%;
       }
+      .nav-button {
+        display: inline-block;
+        vertical-align: middle;
+        -webkit-transform: perspective(1px) translateZ(0);
+        transform: perspective(1px) translateZ(0);
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+        position: relative;
+        overflow: hidden;
+      }
+      .nav-button:before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        left: 0;
+        right: 0;
+        top: 0;
+        background: #fafafa;
+        height: 2px;
+        -webkit-transform: translateY(-4px);
+        transform: translateY(-4px);
+        -webkit-transition-property: transform;
+        transition-property: transform;
+        -webkit-transition-duration: 0.3s;
+        transition-duration: 0.3s;
+        -webkit-transition-timing-function: ease-out;
+        transition-timing-function: ease-out;
+      }
+      .nav-button:hover:before, .nav-button:focus:before, .nav-button:active:before {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+      }
 
-      // .nav-items a:hover:not(.nav-button) {
-      //   color: #e8e9eb;
-      // }
+     
       
       .hideMenuNav {
         display: none;
