@@ -125,7 +125,7 @@ export default function Footer() {
               </p>
               <button
                 type="button"
-                class="text-white bg-blue-700 tracking-wide hover:bg-blue-800 font-medium rounded-lg text-md px-6 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                class="text-white bg-blue-700 tracking-wide duration-200 hover:bg-blue-800 font-medium rounded-lg text-md px-6 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
               >
                 <Link href="/contact">Get In Touch With Us</Link>
               </button>
