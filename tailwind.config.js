@@ -13,6 +13,7 @@ module.exports = {
       'montserrat': ['montserrat', 'sans-serif'],
       'raleway': ['raleway', 'montserrat'],
       'proxima': ['proxima-nova', 'sans-serif'],
+      'dmsans': ['DM Sans', 'sans-serif'],
        // Ensure fonts with spaces have " " surrounding it.
     },
     extend: {

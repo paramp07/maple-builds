@@ -1,5 +1,5 @@
 export default {
-    title: "Maple Builds",
+    title: "Maple Builds | Austin, TX Top Custom Home Builder and Remodeler",
     description: "Custom Home Builder and Remodeler based in Austin Texas.",
     opeGraph: {
         type: 'website',
