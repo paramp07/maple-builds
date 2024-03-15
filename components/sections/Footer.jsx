@@ -160,9 +160,9 @@ export default function Footer() {
 function Icon({ icon: IconComponent, padding, backgroundColor, width }) {
   return (
     <div
-      className={`flex p-[${padding}px] rounded-full bg-${backgroundColor} w-fit hover:bg-transparent duration-300`}
+      className={`flex p-[8px] rounded-full bg-neutral-600 w-fit hover:bg-transparent duration-300`}
     >
-      <IconComponent className={`w-[${width}]`} />
+      <IconComponent className=".9rem" />
     </div>
   );
 }
