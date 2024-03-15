@@ -4,6 +4,7 @@ import styles from "./main-header.module.css";
 import { Button, Navbar } from "flowbite-react";
 import HamburgerMenuOpen from "../sections/HamburgerMenuOpen";
 import PopoverDemo from "./sub-sections/PopoverPortfolio";
+import Image from "next/image";
 
 
 
@@ -37,7 +38,7 @@ export default function Header() {
   return (
     <div className="items-center justify-center text-stone-200 ">
       <div className="flex items-center justify-center px-4 py-2 bg-zinc-950">
-        <div className="flex items-center w-full justify-end gap-5 lg:max-w-[1600px] px-4">
+        <div className="flex items-center w-full justify-end gap-5 lg:max-w-[1550px] px-4">
           <p className="text-sm font-bold font-raleway">
             Call Today: 512.698.6491
           </p>
@@ -50,7 +51,7 @@ export default function Header() {
         </div>
       </div>
       <div className="absolute w-full px-4 bg-black/50">
-        <div className="flex flex-row-reverse px-4 items-center lg:max-w-[1600px] justify-between w-full mx-auto lg:flex-row bg-black/0">
+        <div className="flex flex-row-reverse px-4 items-center lg:max-w-[1550px] justify-between w-full mx-auto lg:flex-row bg-black/0">
           <nav className="lg:w-1/3">
             <section className="flex MOBILE-MENU lg:hidden">
               <div
@@ -103,11 +104,7 @@ export default function Header() {
             </ul>
           </nav>
           <a href="/" className="lg:w-1/3 ">
-            <img
-              src="images/white-logo.svg"
-              className="w-[7rem] mx-auto my-2"
-              alt="logo"
-            />
+            <Image src="/images/white-logo.svg" width={112} height={112} alt="logo" className="mx-auto my-2" />
           </a>
           <div className="justify-end hidden lg:w-1/3 lg:flex">
             <div className="px-6 py-2 font-proxima font-semibold text-white transition duration-300 ease-linear bg-transparent border-[2px] border-white hover:bg-white hover:text-black hover:border-transparent">
