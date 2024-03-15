@@ -61,7 +61,7 @@ export default function Footer() {
       <div className="flex flex-col items-center justify-center px-6 space-y-8 py-14 bg-neutral-800 text-neutral-200 font-dmsans">
         <Image src="/images/white-logo.svg" width={96} height={96} alt="logo" />
         <p className="tracking-wider text-center">
-          Maple Builds, your Dallas home builder, listens and delivers on your
+          Maple Builds, your Austin home builder, listens and delivers on your
           vision, crafting dream homes with custom details and flexible
           amenities tailored to your lifestyle.
         </p>
