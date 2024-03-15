@@ -99,8 +99,8 @@ export default function Footer() {
                 Services
               </h3>
               <div className="space-y-4 mt-7">
-                <CustomLink text="CUSTOM HOMES" link="/" />
-                <CustomLink text="REMODELS" link="/about" />
+                <CustomLink text="CUSTOM HOMES" link="/portfolio/custom-homes" />
+                <CustomLink text="REMODELS" link="/portfolio/remodels" />
               </div>
             </div>
             <div className="flex-1">
@@ -138,7 +138,12 @@ export default function Footer() {
             <p>Copyright © 2024 Maple Builds</p>
             <p>
               Website by{" "}
-              <Link href="https://github.com/paramp07" className="font-bold underline">Param Patel</Link>
+              <Link
+                href="https://github.com/paramp07"
+                className="font-bold underline"
+              >
+                Param Patel
+              </Link>
             </p>
           </div>
           <div className="mx-4 lg:mx-0">
