@@ -9,9 +9,9 @@ const handler = async(req, res) => {
             process.env.SANITY_WEBHOOK_SECRET
         ))return res.status(401).json({msg:'Invalid Request!!'})
 
-
+        // Revalidates the ABOUT page.
         await res.revalidate(`/about`)
-        res.status(200).json({msg: 'Porduct pages revlaidated.'});
+        res.status(200).json({msg: 'Product pages revlaidated.'});
 
     } catch (error) {
         res.status(200).json({err:'Something went wrong!'})
