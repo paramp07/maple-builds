@@ -1,9 +1,12 @@
+// IMPORTS
 import { createClient } from "next-sanity"
 
+// Required API settings
 const projectId = `9prc89n2`
 const dataset = 'production'
 const apiVersion = '2023-08-28'
 
+// Create Sanity Client
 export const client = createClient({
     projectId,
     dataset,
@@ -11,6 +14,7 @@ export const client = createClient({
     useCdn: false,
 });
 
+// ** FUNCTIONS **
 
 // PROJECT LIST SECTION
 export async function getAllCustomHomeBuilds() {

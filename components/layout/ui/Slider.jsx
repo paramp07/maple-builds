@@ -61,26 +61,6 @@ export default function Slider() {
     <>
       {/* <div style={backgroundStyle} className="w-full h-screen bg-black"></div> */}
       <div className="w-full h-[95vh] m-auto bg-black group">
-        {/* <div
-          style={{
-            background: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)), url(${slides[currentIndex].url}) center top/cover no-repeat`,
-            
-          }}
-          className="w-full h-full bg-center bg-cover duration-900"
-        ></div>
-        <div className="flex justify-center py-2 mt-[-3rem]">
-          {slides.map((slide, slideIndex) => (
-            <div
-              key={slideIndex}
-              onClick={() => goToSlide(slideIndex)}
-              className="text-2xl cursor-pointer"
-            >
-              <RxDotFilled
-                color={currentIndex === slideIndex ? "#FFFFFF" : "#e8e8e890"}
-              />
-            </div>
-          ))}
-        </div> */}
         <div
           style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
           className="w-full h-full duration-500 bg-center bg-cover"
