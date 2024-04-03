@@ -149,10 +149,10 @@ export default function Footer() {
           <div className="mx-4 lg:mx-0">
             <ul className="flex justify-center">
               <li className="pr-4 ">
-                <Link href={"/"}>Privacy Policy</Link>
+                <Link href={"/info/privacy-policy"}>Privacy Policy</Link>
               </li>
               <li className="pl-4 pr-4 border-l border-white/20">
-                <Link href={"/"}>Terms and Conditions</Link>
+                <Link href={"/info/terms"}>Terms and Conditions</Link>
               </li>
             </ul>
           </div>
