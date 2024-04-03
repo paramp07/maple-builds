@@ -9,7 +9,7 @@ export default function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false); 
 
   return (
-      <div className="relative z-50 flex items-center justify-between w-full px-8 py-2 mx-auto border-b-2 header border-slate-100">
+      <div className="relative z-50 flex items-center justify-between w-full px-8 py-2 mx-auto header">
       <a href="/">
         <Image src='/images/black-logo.svg' width={96} height={96} alt="logo" />
       </a>
@@ -19,9 +19,9 @@ export default function Header() {
             className="space-y-[6px] HAMBURGER-ICON"
             onClick={() => setIsNavOpen((prev) => !prev)} 
           >
-            <span className="block h-0.5 w-8 bg-gray-900"></span>
-            <span className="block h-0.5 w-8 bg-gray-900"></span>
-            <span className="block h-0.5 w-8 bg-gray-900"></span>
+            <span className="block h-0.5 w-6 bg-gray-900"></span>
+            <span className="block h-0.5 w-7 bg-gray-900"></span>
+            <span className="block h-0.5 w-6  bg-gray-900"></span>
           </div>
 
           <div className={isNavOpen ? "showMenuNav" : "hideMenuNav"}> 
