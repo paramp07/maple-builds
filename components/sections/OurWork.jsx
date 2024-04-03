@@ -4,30 +4,24 @@ import Link from 'next/link'
 
 export default function OurWorkSection(props) {
     const {tag, header, paragraph, remodelImage, customHomeImage} = props;
-    const backgroundStyle = {
-        background: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${urlFor(remodelImage).url()}) center top/cover no-repeat`
-     }
-     const backgroundStyle2 = {
-        background: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${urlFor(remodelImage).url()}) center top/cover no-repeat`
-     }
     return (
         <div className="flex justify-center font-montserrat">
-            <div className="max-w-6xl mx-5 ">
+            <div className="max-w-6xl mx-0 md:mx-5">
                 <div className="flex flex-col items-center">
                     <TextInfo subtitle={tag} heading={header}>
                           {paragraph}
                     </TextInfo>
-                    <div className="w-[90%] h-[3px] bg-gray-300 my-16 md:w-full">
+                    <div className="w-[100%] md:w-[90%] h-[3px] bg-gray-300 my-16 md:w-full">
                         
                     </div>
-                    <div className="flex flex-col items-center w-full gap-12 md:flex-row md:gap-6 md:px-6">
-                        <Link href='/portfolio/remodels' className="h-[500px] w-[90%] md:max-h-[370px] md:w-full living-room cursor-pointer">
+                    <div className="flex flex-col items-center w-full gap-0 md:flex-row md:gap-6 md:px-6">
+                        <Link href='/portfolio/remodels' className="h-[350px] w-[100%] md:w-[90%] md:h-[500px] md:max-h-[370px] md:w-full living-room cursor-pointer">
                             <div class="overlay"></div>
                             <div class="text-container">
                                 <h4 class="info-heading text-5xl md:text-3xl font-semibold">Remodels</h4>
                             </div>
                         </Link>
-                        <Link href="/portfolio/custom-homes" className="h-[500px] w-[90%] md:max-h-[370px] md:w-full house cursor-pointer">
+                        <Link href="/portfolio/custom-homes" className="h-[350px] w-[100%] md:w-[90%] md:h-[500px] md:max-h-[370px] md:w-full house cursor-pointer">
                                 <div class="overlay"></div>
                                 <div class="text-container">
                                     <h4 class="info-heading text-5xl md:text-3xl font-semibold" id="fix-margin">Custom Home Builds</h4>

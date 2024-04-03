@@ -3,6 +3,7 @@ import { useState } from "react"; // import state
 import HamburgerMenuOpen from "../sections/HamburgerMenuOpen";
 import React from 'react';
 import PopoverDemo from "./sub-sections/PopoverPortfolio";
+import Image from "next/image";
 
 export default function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false); 
@@ -10,7 +11,7 @@ export default function Header() {
   return (
       <div className="relative z-50 flex items-center justify-between w-full px-8 py-2 mx-auto border-b-2 header border-slate-100">
       <a href="/">
-        <img src='/images/black-logo.svg' className="w-[6rem]" alt="logo" />
+        <Image src='/images/black-logo.svg' width={96} height={96} alt="logo" />
       </a>
       <nav>
         <section className="flex MOBILE-MENU lg:hidden">
