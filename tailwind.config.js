@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require('tailwindcss/defaultTheme')
+
+
 module.exports = {
   content: [
     "./node_modules/flowbite-react/**/*.js",
@@ -9,6 +12,10 @@ module.exports = {
     "./node_modules/react-tailwindcss-datepicker/dist/index.esm.js",
   ],
   theme: {
+    screens: {
+      'xs': '475px',
+      ...defaultTheme.screens,
+    },
     fontFamily: {
       'montserrat': ['montserrat', 'sans-serif'],
       'raleway': ['raleway', 'montserrat'],
