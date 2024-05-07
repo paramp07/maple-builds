@@ -66,16 +66,16 @@ export default function Footer() {
           amenities tailored to your lifestyle.
         </p>
         <div className="flex gap-6">
-          <Link href="">
+          <Link href="https://www.facebook.com/maplebuildsllc/">
             <Icon icon={FaFacebook} />
           </Link>
-          <Link href="">
+          <Link href="https://www.facebook.com/maplebuildsllc/">
             <Icon icon={FaInstagram} />
           </Link>
-          <Link href="">
+          <Link href="https://www.youtube.com/@MapleBuilds">
             <Icon icon={AiFillYoutube} />
           </Link>
-          <Link href="">
+          <Link href="https://www.youtube.com/@MapleBuilds">
             <Icon icon={IoLogoTiktok} />
           </Link>
         </div>
