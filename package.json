@@ -17,10 +17,13 @@
     "@sanity/vision": "^3.14.3",
     "@sanity/webhook": "^3.0.1",
     "autoprefixer": "10.4.14",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
     "dayjs": "1.11.9",
     "embla-carousel-react": "^8.0.0-rc11",
     "flowbite": "^1.8.1",
     "flowbite-react": "^0.5.0",
+    "lucide-react": "^0.378.0",
     "next": "13.4.12",
     "next-sanity": "^5.1.2",
     "next-sanity-image": "^6.1.0",
@@ -39,6 +42,8 @@
     "slick-carousel": "^1.8.1",
     "styled-components": "5.2",
     "swiper": "^10.1.0",
-    "tailwindcss": "3.3.3"
+    "tailwind-merge": "^2.3.0",
+    "tailwindcss": "3.3.3",
+    "tailwindcss-animate": "^1.0.7"
   }
 }
