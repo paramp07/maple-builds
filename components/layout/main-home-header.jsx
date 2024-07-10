@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { useState } from "react"; // import state
-import styles from "./main-header.module.css";
 import { Button, Navbar } from "flowbite-react";
 import HamburgerMenuOpen from "../sections/HamburgerMenuOpen";
 import PopoverDemo from "./sub-sections/PopoverPortfolio";
@@ -104,8 +103,8 @@ export default function Header() {
             </ul>
           </nav>
           <a href="/" className="lg:w-1/3 ">
-            <Image src="/images/white-logo.svg" width={112} height={112} alt="logo" className="mx-auto my-2 hidden xs:block" />
-            <Image src="/images/white-logo.svg" width={65} height={65} alt="logo" className="mx-auto my-2  xs:hidden" />
+            <Image src="/images/white-logo.svg" width={112} height={112} alt="logo" className="hidden mx-auto my-2 xs:block" />
+            <Image src="/images/white-logo.svg" width={65} height={65} alt="logo" className="mx-auto my-2 xs:hidden" />
           </a>
           <div className="justify-end hidden lg:w-1/3 lg:flex">
             <div className="px-6 py-2 font-proxima font-semibold text-white transition duration-300 ease-linear bg-transparent border-[2px] border-white hover:bg-white hover:text-black hover:border-transparent">

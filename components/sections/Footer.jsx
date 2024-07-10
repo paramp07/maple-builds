@@ -7,6 +7,7 @@ import { AiFillYoutube } from "react-icons/ai";
 import { IoLogoTiktok } from "react-icons/io5";
 import { BsArrowRightCircleFill } from "react-icons/bs";
 import { Button } from "flowbite-react";
+import { motion, useScroll } from "framer-motion";
 
 export default function Footer() {
   function getCurrentYear() {
@@ -99,7 +100,10 @@ export default function Footer() {
                 Services
               </h3>
               <div className="space-y-4 mt-7">
-                <CustomLink text="CUSTOM HOMES" link="/portfolio/custom-homes" />
+                <CustomLink
+                  text="CUSTOM HOMES"
+                  link="/portfolio/custom-homes"
+                />
                 <CustomLink text="REMODELS" link="/portfolio/remodels" />
               </div>
             </div>
@@ -133,30 +137,38 @@ export default function Footer() {
           </div>
         </div>
         <hr className="h-[1px] border-white/10"></hr>
-        <div className="flex flex-col items-center justify-between py-4 space-y-6 text-sm text-center lg:space-y-0 lg:text-left lg:flex-row text-white/40">
-          <div className="flex flex-col">
-            <p>Copyright © 2024 Maple Builds</p>
-            <p>
-              Website by{" "}
-              <Link
-                href="https://github.com/paramp07"
-                className="font-bold underline"
-              >
-                Param Patel
-              </Link>
-            </p>
+        
+          <div className="flex flex-col items-center justify-between py-4 space-y-6 text-sm text-center lg:space-y-0 lg:text-left lg:flex-row text-white/40">
+          <motion.div
+          initial={{ opacity: 0, x:20}}
+          whileInView={{ opacity: 1, x:0}}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4 }}
+        >
+            <div className="flex flex-col">
+              <p>Copyright © 2024 Maple Builds</p>
+              <p>
+                Website by{" "}
+                <Link
+                  href="https://github.com/paramp07"
+                  className="font-bold underline"
+                >
+                  Param Patel
+                </Link>
+              </p>
+            </div>
+            <div className="mx-4 lg:mx-0">
+              <ul className="flex justify-center">
+                <li className="pr-4 ">
+                  <Link href={"/info/privacy-policy"}>Privacy Policy</Link>
+                </li>
+                <li className="pl-4 pr-4 border-l border-white/20">
+                  <Link href={"/info/terms"}>Terms and Conditions</Link>
+                </li>
+              </ul>
+            </div>
+            </motion.div>
           </div>
-          <div className="mx-4 lg:mx-0">
-            <ul className="flex justify-center">
-              <li className="pr-4 ">
-                <Link href={"/info/privacy-policy"}>Privacy Policy</Link>
-              </li>
-              <li className="pl-4 pr-4 border-l border-white/20">
-                <Link href={"/info/terms"}>Terms and Conditions</Link>
-              </li>
-            </ul>
-          </div>
-        </div>
       </div>
     </div>
   );

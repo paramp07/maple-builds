@@ -1,21 +1,22 @@
 import { NextPage } from "next";
 import Carousel from "../components/layout/ui/Slider";
 import Image from "next/image";
-import { Montserrat } from 'next/font/google'
+import { Montserrat } from "next/font/google";
 import OurWorkSection from "@/components/sections/OurWork";
 import CTA from "@/components/sections/CTA";
 import Testimonials from "@/components/sections/Testimonials";
 import ShortContact from "@/components/sections/ShortContact";
-import Footer from '@/components/sections/Footer';
+import Footer from "@/components/sections/Footer";
 import Header from "@/components/layout/main-home-header";
 import { getAllTestimonials } from "@/src/app/lib/sanity";
 import { getHomePage } from "@/src/app/lib/sanity";
 import TestTestimonial from "@/components/sections/TestTestmonial";
 import ImageGallery from "react-image-gallery";
+import StickyNavbar from "react-sticky-navbar";
 
 
 function Home(props) {
-  const {testimonials, homepage} = props
+  const { testimonials, homepage } = props;
   const images = [
     "https://placehold.co/480x300?font=roboto&text=Slide+1",
     "https://placehold.co/480x300?font=roboto&text=Slide+2",
@@ -25,6 +26,7 @@ function Home(props) {
   return (
     <div className="">
       <Header />
+
       <Carousel loop>
         {images.map((src, i) => {
           return (
@@ -37,20 +39,20 @@ function Home(props) {
             <div className="relative h-64 flex-[0_0_100%]" key={i}>
               {/* use object-cover + fill since we don't know the height and width of the parent */}
               {/* <Image src={src} fill className="object-cover" alt="alt" /> */}
-              
             </div>
           );
         })}
       </Carousel>
-      <OurWorkSection
-        tag={homepage.workSectionTag}
-        header={homepage.workSectionHeader}
-        paragraph={homepage.workSectionParagraph}
-        remodelImage={homepage.remodelsSectionImage}
-        customHomeImage={homepage.customHomesSectionImage}
-
-      />
       
+        <OurWorkSection
+          tag={homepage.workSectionTag}
+          header={homepage.workSectionHeader}
+          paragraph={homepage.workSectionParagraph}
+          remodelImage={homepage.remodelsSectionImage}
+          customHomeImage={homepage.customHomesSectionImage}
+        />
+      
+
       {/*  */}
       <CTA />
       <style>
@@ -58,21 +60,45 @@ function Home(props) {
         .header {
           display: none;
         }
+        .sticky-navbar-nav {
+          position: fixed;
+          top: 0;
+          left: 0;
+          display: flex;
+          width: 100%;
+          box-sizing: border-box;
+          align-items: center;
+          justify-content: space-between;
+          padding-top: 0px;
+          padding-bottom: 0px;
+          padding-left: 0px;
+          padding-right: 0px;
+          transition: all ease .5s;
+        }
+        
+        .sticky-navbar-nav.sticky-navbar-mobile {
+          background-color: black;
+        }
+        
+        .sticky-navbar-nav.sticky-navbar-hidden {
+          transform: translateY(-100%);
+        }
+        
         `}
       </style>
     </div>
   );
-};
+}
 
 export async function getStaticProps() {
   const testimonials = await getAllTestimonials();
   const homepage = await getHomePage();
   return {
-      props: {
-          testimonials, homepage
-      }
-  }
+    props: {
+      testimonials,
+      homepage,
+    },
+  };
 }
 
 export default Home;
-

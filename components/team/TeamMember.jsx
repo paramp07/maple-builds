@@ -14,9 +14,8 @@ export default function TeamMember(props) {
   const { name, jobTitle, image, description } = props;
 
   return (
-    <li class="cards_item w-full flex p-[1rem] sm:w-[50%] md:w-[33.3333%] ">
+    <li class="cards_item w-full flex p-[1rem] sm:w-[50%] md:w-[33.3333%] max-w-[380px] mx-auto">
       <div class="card bg-white rounded flex flex-col overflow-hidden w-full">
-        {/* <div class="card_image"><img src={urlFor(image).url()} className=" aspect-[13/16] object-cover align-middle" /></div> */}
         <div className="w-full ">
           <img
             src={urlFor(image).url()}
@@ -32,21 +31,6 @@ export default function TeamMember(props) {
         </div>
       </div>
     </li>
-    // <li class="flex w-full p-4 mx-6 md:w-[50%] md:mx-0 lg:w-[33.3333%]">
-    //         <div class="bg-white flex flex-col overflow-hidden relative cursor-pointer">
-    //           <div className="aspect-square w-full">
-    //                    <img
-    //                      src={urlFor(image).url()}
-    //                      className="object-cover h-full hover:scale-150"
-    //                    />
-    //           </div>
-    //           <div className="absolute inset-0  bg-black  bg-opacity-50 opacity-0 hover:opacity-100  transition-all duration-[200ms]">
-    //               <div className="flex items-center justify-center h-full p-4">
-    //                   <p className="text-gray-100 text-[250%] text-center font-bold md:text-3xl lg:text-3xl">{name}</p>
-    //               </div>
-    //           </div>
-    //         </div>
-    // </li>
   );
 }
 
@@ -65,8 +49,8 @@ function AccordionDemo(props) {
             </p>
           </div>
         </AccordionTrigger>
-        <AccordionContent>
-          Yes. It adheres to the WAI-ARIA design pattern.
+        <AccordionContent className="px-3 py-2 rounded-xl bg-neutral-100 text-zinc-800">
+          {description}
         </AccordionContent>
       </AccordionItem>
     </Accordion>

@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: ["class"],
@@ -9,6 +11,17 @@ module.exports = {
   ],
   prefix: "",
   theme: {
+    screens: {
+      'xs': '475px',
+      ...defaultTheme.screens,
+    },
+    fontFamily: {
+      'montserrat': ['montserrat', 'sans-serif'],
+      'raleway': ['raleway', 'montserrat'],
+      'proxima': ['proxima-nova', 'sans-serif'],
+      'dmsans': ['DM Sans', 'sans-serif'],
+       // Ensure fonts with spaces have " " surrounding it.
+    },
     container: {
       center: true,
       padding: "2rem",
