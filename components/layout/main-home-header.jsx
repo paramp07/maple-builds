@@ -39,7 +39,7 @@ export default function Header() {
       <div className="flex items-center justify-center px-4 py-2 bg-zinc-950">
         <div className="flex items-center w-full justify-between xs:justify-end gap-5 lg:max-w-[1550px] px-0">
           <p className="text-xs font-bold font-raleway sm:text-sm">
-            Call Today: 512.698.6491
+            Call Today: 512.698.649156567
           </p>
           <button
             type="button"
