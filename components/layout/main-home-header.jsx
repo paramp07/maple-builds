@@ -40,7 +40,7 @@ export default function Header() {
       <div className="flex items-center justify-center px-4 py-2 bg-zinc-950">
         <div className="flex items-center w-full justify-between xs:justify-end gap-5 lg:max-w-[1550px] px-0">
           <p className="text-xs font-bold font-raleway sm:text-sm">
-            Call Today: 512.698.6491
+            Call Today: 512.698.649156567
           </p>
           <button
             type="button"
@@ -104,8 +104,8 @@ export default function Header() {
             </ul>
           </nav>
           <a href="/" className="lg:w-1/3 ">
-            <Image src="/images/white-logo.svg" width={112} height={112} alt="logo" className="mx-auto my-2 hidden xs:block" />
-            <Image src="/images/white-logo.svg" width={65} height={65} alt="logo" className="mx-auto my-2  xs:hidden" />
+            <Image src="/images/white-logo.svg" width={112} height={112} alt="logo" className="hidden mx-auto my-2 xs:block" />
+            <Image src="/images/white-logo.svg" width={65} height={65} alt="logo" className="mx-auto my-2 xs:hidden" />
           </a>
           <div className="justify-end hidden lg:w-1/3 lg:flex">
             <div className="px-6 py-2 font-proxima font-semibold text-white transition duration-300 ease-linear bg-transparent border-[2px] border-white hover:bg-white hover:text-black hover:border-transparent">
