@@ -13,11 +13,27 @@ export default defineType({
       type: "string",
       options: {
         list: [
-          { title: "Custom Home Build", value: "customHomeBuild" },
-          { title: "Remodel", value: "remodel" },
+          { title: "Custom Home", value: "customHomeBuild" },
+          { title: "Kitchen Remodel", value: "kitchenRemodel" },
+          { title: "Bathroom Remodel", value: "bathroomRemodel" },
+          { title: "Full Home Remodel", value: "fullHomeRemodel" },
+          { title: "Addition", value: "addition" },
+          { title: "Custom Projects", value: "customProjects" },
+          { title: "Paint", value: "paint" },
+
         ],
       },
       validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'location',
+      title: 'Location',
+      type: 'string',
+    }),
+    defineField({
+      name: 'year',
+      title: 'Year',
+      type: 'string',
     }),
 
     defineField({
@@ -26,6 +42,7 @@ export default defineType({
       type: 'string',
       validation: (Rule) => Rule.required(),
     }),
+    
     defineField({
       name: 'slug',
       title: 'Slug',
@@ -61,7 +78,7 @@ export default defineType({
 
     defineField({
       name: 'interior',
-      title: 'Interior/Exterior Designer',
+      title: 'Interior Designer',
       type: 'string',
     }),
 
@@ -71,11 +88,7 @@ export default defineType({
       type: 'string',
     }),
 
-    defineField({
-      name: 'landscape',
-      title: 'Landscape',
-      type: 'string',
-    }),
+    
 
     defineField({
       name: 'Images',

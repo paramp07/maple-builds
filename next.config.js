@@ -11,6 +11,6 @@
 // next.config.js
 module.exports = {
 	images: {
-		domains: ['cdn.sanity.io']
+		domains: ['cdn.sanity.io', "st.hzcdn.com"]
 	}
 };
