@@ -10,7 +10,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <DefaultSeo {...SEO} />
-      <ReactLenis root options={{duration: .6, syncTouch: true, lerp: .05, wheelMultiplier: .8}}>
+      <ReactLenis root options={{duration: .6, lerp: .05, wheelMultiplier: .8}}>
         <Layout>
           <Component {...pageProps} />
         </Layout>
