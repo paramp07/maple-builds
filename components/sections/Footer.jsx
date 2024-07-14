@@ -6,6 +6,7 @@ import { FaInstagram } from "react-icons/fa";
 import { AiFillYoutube } from "react-icons/ai";
 import { IoLogoTiktok } from "react-icons/io5";
 import { BsArrowRightCircleFill } from "react-icons/bs";
+import { ArrowUpRight } from "lucide-react";
 import { Button } from "flowbite-react";
 import { motion, useScroll } from "framer-motion";
 
@@ -18,77 +19,13 @@ export default function Footer() {
   const currentYear = getCurrentYear();
 
   return (
-    // <div className="flex flex-col-reverse mx-auto px-3 justify-between max-w-[500px] md:max-w-none w-full text-gray-950 space-y-4 items-center md:px-[9rem] py-6 md:py-12 md:flex-row md:space-y-0 bg-white ">
-    //   <div className="text-2xl font-semibold tracking-tighter font-montserrat opacity-90">
-    //     maple builds
-    //   </div>
-    //   <p className="mt-0 text-sm opacity-60">
-    //     Copyright © {currentYear} Maple Builds LLC
-    //   </p>
-    //   <div className="w-full md:w-auto">
-    //     <ul className="flex justify-between px-10 ul-list md:space-x-5 md:px-0">
-    //       <li className="social-links">
-    //         <a target="_blank" href="https://www.instagram.com/maple.builds/">
-    //           <i class="fa-brands fa-instagram fa-xl"></i>
-    //         </a>
-    //       </li>
-    //       <li className="social-links">
-    //         <a target="_blank" href="https://www.facebook.com/maplebuildsllc/">
-    //           <i class="fa-brands fa-square-facebook fa-xl"></i>
-    //         </a>
-    //       </li>
-    //       <li className="social-links">
-    //         <a target="_blank" href="https://www.youtube.com/@MapleBuilds">
-    //           <i class="fa-brands fa-youtube fa-xl"></i>
-    //         </a>
-    //       </li>
-    //       <li className="social-links">
-    //         <a target="_blank" href="https://www.tiktok.com/@maplebuilds">
-    //           <i class="fa-brands fa-tiktok fa-xl"></i>
-    //         </a>
-    //       </li>
-    //     </ul>
-    //   </div>
-    //   <style>
-    //     {`
-    //           .social-links a {
-    //            cursor: pointer;
-    //            height: 20px;
-    //           }
-    //           `}
-    //   </style>
-    // </div>
+   
     <div>
-      <div className="flex flex-col items-center justify-center px-6 space-y-8 py-14 bg-neutral-800 text-neutral-200 font-dmsans">
-        <Image src="/images/white-logo.svg" width={96} height={96} alt="logo" />
-        <p className="tracking-wider text-center">
-          Maple Builds, your Austin home builder, listens and delivers on your
-          vision, crafting dream homes with custom details and flexible
-          amenities tailored to your lifestyle.
-        </p>
-        <div className="flex gap-6">
-          <Link href="https://www.facebook.com/maplebuildsllc/">
-            <Icon icon={FaFacebook} />
-          </Link>
-          <Link href="https://www.facebook.com/maplebuildsllc/">
-            <Icon icon={FaInstagram} />
-          </Link>
-          <Link href="https://www.youtube.com/@MapleBuilds">
-            <Icon icon={AiFillYoutube} />
-          </Link>
-          <Link href="https://www.youtube.com/@MapleBuilds">
-            <Icon icon={IoLogoTiktok} />
-          </Link>
-        </div>
-      </div>
       <div className="bg-[#141414] text-neutral-200 py-0 lg:px-12 font-dmsans">
         <div className="flex flex-col lg:flex-row py-[5rem] mx-[1.1rem] space-y-12 lg:space-y-0 space-x-0 lg:space-x-2">
           <div className="flex flex-col space-x-0 space-y-12 flex-[3] lg:space-x-2 md:space-y-0 md:flex-row">
             <div className="flex-1">
-              <h3 className="font-bold tracking-wide text-[1.5rem]">
-                Quick Links
-              </h3>
-              <div className="space-y-4 mt-7">
+              <div className="w-full space-y-4 mt-7">
                 <CustomLink text="HOME" link="/" />
                 <CustomLink text="ABOUT US" link="/about" />
                 <CustomLink text="OUR PROCESS" link="/process" />
@@ -96,9 +33,7 @@ export default function Footer() {
               </div>
             </div>
             <div className="flex-1">
-              <h3 className="font-bold tracking-wide text-[1.5rem]">
-                Services
-              </h3>
+              
               <div className="space-y-4 mt-7">
                 <CustomLink
                   text="CUSTOM HOMES"
@@ -190,23 +125,29 @@ Icon.defaultProps = {
   width: ".9rem",
 };
 
+
 function CustomLink({ text, link }) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <Link
-      className="flex gap-4 duration-300"
-      href={`${link}`}
+      href={link}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      className="flex items-center justify-between gap-4 duration-300 group"
     >
-      <BsArrowRightCircleFill
-        className="w-[15px] duration-300"
-        color={isHovered ? "rgb(115,115,115)" : "rgb(157, 157, 157)"}
-      />
-      <p className="text-[.8rem] font-bold ml-[0px] duration-200 tracking-[0.175em] hover:ml-[5px] hover:text-neutral-500">
-        {text}
-      </p>
+      <span className="flex items-center">
+        <p className="text-[1.5rem]  tracking-wide ml-0 duration-200 tracking-[0.175em] group-hover:ml-[5px] group-hover:text-neutral-500">
+          {text}
+        </p>
+      </span>
+      <span className="flex items-center">
+        <ArrowUpRight
+          size={35}
+          strokeWidth={1}
+          className={`duration-300 ${isHovered ? 'text-gray-500' : 'text-gray-300'}`}
+        />
+      </span>
     </Link>
   );
 }

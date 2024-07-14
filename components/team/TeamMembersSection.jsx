@@ -1,12 +1,12 @@
 import { getAllTeamMembers } from "@/src/app/lib/sanity";
-import TextInfo from "../layout/sub-sections/TextInfo"
+
 import TeamMember from "./TeamMember"
 
 export default function TeamMembersSection(props) {
     const {members, tag, header, paragraph} = props
 
     return (
-        <div className="font-montserrat mt-16">
+        <div className="mt-16 font-montserrat">
             <TextInfo subtitle={tag} heading={header}>
                 {paragraph}
             </TextInfo>
@@ -22,7 +22,7 @@ export default function TeamMembersSection(props) {
                     />
                 ))}
               </ul> */}
-              <ul className="flex flex-wrap list-none mx-14  w-auto lg:mx-12">
+              <ul className="flex flex-wrap w-auto list-none mx-14 lg:mx-12">
                 {
                   members.map((member) => (
                       <TeamMember

@@ -1,4 +1,3 @@
-import TextInfo from "@/components/layout/sub-sections/TextInfo"
 import ShortInfoImage from "@/components/sections/ShortInfoImage"
 import TeamMembersSection from "@/components/team/TeamMembersSection";
 import Image from "next/image"
@@ -85,7 +84,7 @@ function ServicesSection(props) {
         = props
 
     return (
-        <div className="block font-montserrat mx-8 lg:flex">
+        <div className="block mx-8 font-montserrat lg:flex">
             <div className="flex-1 block lg:hidden">
                 <TextInfo subtitle={tag} heading={header}>
                     {paragraph}
