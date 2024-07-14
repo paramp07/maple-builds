@@ -1,6 +1,5 @@
 import CTA from "@/components/sections/CTA";
-import IntroSectionBackground from "@/components/sections/IntroSectionBackground";
-import ShortInfoImage from "@/components/sections/ShortInfoImage";
+// import IntroSectionBackground from "@/components/sections/IntroSectionBackground";
 import { getProcessPage, getProcesses } from "@/src/app/lib/sanity";
 import { urlFor } from "@/src/app/lib/urlFor";
 import { NextSeo } from "next-seo";
@@ -14,7 +13,7 @@ export default function ProcessPage(props) {
 
   return (
     <>
-      <NextSeo {...SEO} />
+      {/* <NextSeo {...SEO} />
       <div>
           <IntroSectionBackground
           header={processPage.ourProcessHeader}
@@ -23,7 +22,7 @@ export default function ProcessPage(props) {
           />
           <ProcessSection processes={processes} />
           <CTA />
-      </div>
+      </div> */}
     </>
   );
 }
@@ -43,7 +42,7 @@ function ProcessSection(props) {
 
   return (
     <main className="contain xl:mx-10">
-      <section className="features flex flex-col items-center">
+      <section className="flex flex-col items-center features">
         {/* <Process heading='Testing New Heading' image='square-house.jpg'/>
         <Process />
         <Process />
@@ -117,13 +116,13 @@ function Process(props) {
 
   return (
     <section className="feature-pair flex flex-col space-y-6 mx-8 max-w-[600px] lg:flex-row lg:max-w-none">
-      <article className="feature feature--image shadow-lg  ">
+      <article className="shadow-lg feature feature--image ">
         <img src={urlFor(image).url()} className="object-cover w-full h-[450px]" />
       </article>
-      <article className="feature feature--text space-y-2">
-        <h4 className="font-semibold text-3xl">{heading}</h4>
+      <article className="space-y-2 feature feature--text">
+        <h4 className="text-3xl font-semibold">{heading}</h4>
         <hr />
-        <p className="text-gray-700 text-lg">{paragraph}</p>
+        <p className="text-lg text-gray-700">{paragraph}</p>
       </article>
     </section>
   )

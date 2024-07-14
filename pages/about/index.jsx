@@ -22,7 +22,7 @@ function AboutPage(props) {
 
     return (
         <>
-        <NextSeo {...SEO} />
+        {/* <NextSeo {...SEO} />
         <div className="mt-2">
             <ShortInfoImage 
                 heading={aboutPage.ctaHeader}
@@ -54,7 +54,7 @@ function AboutPage(props) {
                 remodelsImage={aboutPage.remodelsImage}
             />
             <CTA></CTA>
-        </div>
+        </div> */}
         </>
     )
 }

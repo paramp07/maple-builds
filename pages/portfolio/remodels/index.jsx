@@ -1,4 +1,4 @@
-import PortfolioPage from "@/components/portfolio/PortfolioPage";
+// import PortfolioPage from "@/components/portfolio/PortfolioPage";
 import { getAllRemodels, getRemodelsPage } from "@/src/app/lib/sanity";
 import { NextSeo } from "next-seo";
 
@@ -12,12 +12,12 @@ export default function CustomHomesPortfolio(props) {
     return (
         <>  
             <NextSeo {...SEO} />
-            <PortfolioPage
+            {/* <PortfolioPage
              projects={projects}
              header={remodelsPage.remodelsHeader} 
              subheader={remodelsPage.remodelsSubHeader}
              paragraph={remodelsPage.remodelsParagraph}
-            />
+            /> */}
         </>
     )
 }
