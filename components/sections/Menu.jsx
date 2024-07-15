@@ -66,8 +66,6 @@ export default function Menu() {
     },
   };
 
- 
-
   return (
     <AnimatePresence>
       {open && (
@@ -84,7 +82,7 @@ export default function Menu() {
               initial="initial"
               animate="open"
               exit="initial"
-              className="flex flex-col h-full gap-4 mt-[8rem] font-lora "
+              className="flex flex-col h-full gap-4 mt-[8rem] "
             >
               {navLinks.map((link, index) => {
                 return (
@@ -125,7 +123,7 @@ const MobileNavLink = ({ title, href }) => {
   return (
     <motion.div
       variants={mobileLinkVars}
-      className="text-6xl uppercase text-neutral-200"
+      className="text-5xl uppercase text-neutral-200"
     >
       <Link href={href}>{title}</Link>
     </motion.div>

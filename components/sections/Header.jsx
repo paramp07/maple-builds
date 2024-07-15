@@ -4,6 +4,7 @@ import MapleLogo from "../../public/white_logo.svg";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import React, { useContext, useEffect, useState } from "react";
 import { MenuContext } from "../layout/menuContext";
+import Link from "next/link";
 
 export default function Header() {
   const { scrollY } = useScroll();
@@ -46,9 +47,9 @@ export default function Header() {
       <nav className=" max-w-[1600px] mx-auto">
         {/* <MapleBuildsLogo /> */}
         <div className="flex items-center justify-between py-2 ">
-          <div className="px-4 w-fit">
+          <Link href="/" className="px-4 w-fit">
             <Image priority src={MapleLogo} height={60} />
-          </div>
+          </Link>
           <div className="p-[20px] block h-full" onClick={() => toggleMenu()}>
             <div class="hamburger-icon flex flex-col justify-between w-[3rem] h-[.6rem] cursor-pointer">
               <motion.span
