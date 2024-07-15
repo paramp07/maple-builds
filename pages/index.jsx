@@ -16,7 +16,7 @@ import { useState, useEffect } from "react";
 function Home(props) {
   return (
     <>
-      <div className="h-screen h-svh">
+      <div className="h-[100svh]">
         <div className="relative h-full">
           <div className="absolute w-full h-full overflow-y-hidden">
             <div className=" z-[-1] absolute object-cover w-full h-full bg-black opacity-40"></div>
