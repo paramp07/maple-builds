@@ -11,10 +11,10 @@ import Link from "next/link";
 
 const navLinks = [
   { title: "Home", href: "/" },
-  { title: "About", href: "/" },
-  { title: "Process", href: "/" },
-  { title: "Portfolio", href: "/" },
-  { title: "Contact", href: "/" },
+  { title: "About", href: "/about" },
+  { title: "Process", href: "/process" },
+  { title: "Portfolio", href: "/portfolio" },
+  { title: "Contact", href: "/contact" },
 ];
 export default function Menu() {
   const { open, setOpen } = useContext(MenuContext);
@@ -86,7 +86,7 @@ export default function Menu() {
             >
               {navLinks.map((link, index) => {
                 return (
-                  <div className="overflow-hidden ">
+                  <div className="overflow-hidden" onClick={() => setOpen(!open)}>
                     <MobileNavLink
                       key={index}
                       title={link.title}
