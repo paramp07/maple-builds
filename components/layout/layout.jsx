@@ -9,7 +9,7 @@ export default function Layout(props) {
     return (
         <Fragment>
             <Head>
-                <meta name="theme-color" content="#00FFFFFF" />
+                <meta name="theme-color" content="#171717" />
 
             </Head>
             <Header />
