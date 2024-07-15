@@ -20,6 +20,7 @@ module.exports = {
       'raleway': ['raleway', 'montserrat'],
       'proxima': ['proxima-nova', 'sans-serif'],
       'dmsans': ['DM Sans', 'sans-serif'],
+      'manrope': ["Manrope", "sans-serif", "system-ui"]
        // Ensure fonts with spaces have " " surrounding it.
     },
     container: {

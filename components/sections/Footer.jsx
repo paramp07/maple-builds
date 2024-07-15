@@ -9,6 +9,7 @@ import { BsArrowRightCircleFill } from "react-icons/bs";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "flowbite-react";
 import { motion, useScroll } from "framer-motion";
+import MapleLogo from "../../public/whitetopdownlogo.svg";
 
 export default function Footer() {
   function getCurrentYear() {
@@ -22,14 +23,17 @@ export default function Footer() {
    
     <div>
       <div className="bg-[#141414] text-neutral-200 py-0 lg:px-12 font-dmsans">
+      
         <div className="flex flex-col lg:flex-row py-[5rem] mx-[1.1rem] space-y-12 lg:space-y-0 space-x-0 lg:space-x-2">
+        <Image priority className="w-[159px]" src={MapleLogo} height={400} />
           <div className="flex flex-col space-x-0 space-y-12 flex-[3] lg:space-x-2 md:space-y-0 md:flex-row">
             <div className="flex-1">
               <div className="w-full space-y-4 mt-7">
                 <CustomLink text="HOME" link="/" />
-                <CustomLink text="ABOUT US" link="/about" />
-                <CustomLink text="OUR PROCESS" link="/process" />
-                <CustomLink text="CONTACT US" link="/contact" />
+                <CustomLink text="ABOUT" link="/about" />
+                <CustomLink text="PROCESS" link="/process" />
+                <CustomLink text="CONTACT" link="/contact" />
+                <CustomLink text="PORTFOLIO" link="/portfolio" />
               </div>
             </div>
             <div className="flex-1">
@@ -43,9 +47,8 @@ export default function Footer() {
               </div>
             </div>
             <div className="flex-1">
-              <h3 className="font-bold tracking-wide text-[1.5rem]">Contact</h3>
               <div className="space-y-2 tracking-wide mt-7">
-                <Link href="mailto:hello@maplebuilds.com">
+                <Link className="" href="mailto:hello@maplebuilds.com">
                   hello@maplebuilds.com
                 </Link>
                 <p>512 598-6491</p>
