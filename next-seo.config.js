@@ -6,6 +6,7 @@ export default {
         locale: "en_IE",
         url: 'https://maple-builds.vercel.app',
         site_name: 'Maple Builds',
+        
     },
     
 }
