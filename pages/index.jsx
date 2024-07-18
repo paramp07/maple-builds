@@ -11,12 +11,16 @@ import {
   Sparkles,
 } from "lucide-react";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { MenuContext } from "../components/layout/menuContext";
 
 function Home(props) {
+  const { dark, setDark } = useContext(MenuContext);
+
+  setDark(true)
   return (
-    <>
-      <div className="h-[100svh]">
+    <div className="font-dmsans">
+      <div className="h-[100svh] ">
         <div className="relative h-full">
           <div className="absolute w-full h-full overflow-y-hidden">
             <div className=" z-[-1] absolute object-cover w-full h-full bg-black opacity-40"></div>
@@ -30,9 +34,9 @@ function Home(props) {
               }
             />
           </div>
-          <div className="relative h-full text-white px-[20px] w-full font-dmsans">
+          <div className="relative h-full text-white px-[20px] w-full ">
             <div className="flex flex-col justify-end h-full pb-[2.5rem] text-[2rem] md:text-[4rem]">
-              <h1 className="uppercase">Sedgefield Modern</h1>
+              <h1 className="font-medium tracking-[.04em] uppercase font-mulish">Sedgefield Modern</h1>
               <Link
                 href="/"
                 className="flex items-center gap-2 py-2 text-base transition-all ease-in opacity-50 hover:opacity-80"
@@ -44,7 +48,7 @@ function Home(props) {
           </div>
         </div>
       </div>
-      <div className="font-dmsans px-[20px] mt-20 flex flex-col gap-16">
+      <div className=" px-[20px] mt-20 flex flex-col gap-16">
         <div className="flex flex-col gap-8">
           <h1 className="text-[2rem] font-medium leading-10">
             Maple Builds is a construction company dedicated to transforming
@@ -75,7 +79,7 @@ function Home(props) {
           </div>
         </div>
       </div>
-      <div className="px-[20px] mt-12 flex flex-col font-dmsans bg-neutral-200">
+      <div className="px-[20px] mt-12 flex flex-col  bg-neutral-200">
         <div className="flex flex-col gap-12 mb-16">
           <div className="flex flex-col gap-2 mt-12 text-center">
             <h1 className="text-6xl font-medium tracking-tight text-neutral-800">
@@ -111,7 +115,7 @@ function Home(props) {
           </div>
         </div>
       </div>
-      <div className="font-dmsans bg-neutral-900 px-[20px] flex flex-col gap-6">
+      <div className=" bg-neutral-900 px-[20px] flex flex-col gap-6">
         <section class="py-12 text-neutral-100 sm:py-16 lg:py-20">
           <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="text-center">
@@ -191,7 +195,7 @@ function Home(props) {
           </div>
         </section>
       </div>
-      <div className="font-dmsans mt-12 px-[20px] flex flex-col gap-6">
+      <div className=" mt-12 px-[20px] flex flex-col gap-6">
         <div className="flex items-center justify-between">
           <div className="pr-[2rem] text-neutral-800">
             <h1 className="text-4xl font-medium leading-tight tracking-tight">
@@ -231,7 +235,7 @@ function Home(props) {
           />
         </div>
       </div>
-      <div className="font-dmsans mt-12 px-[20px] py-[60px] flex flex-col gap-6">
+      <div className=" mt-12 px-[20px] py-[60px] flex flex-col gap-6">
         <div>
           <h1 className="text-4xl font-medium tracking-tight text-neutral-900">
             Dreams Fulfilled
@@ -264,7 +268,7 @@ function Home(props) {
           <OutlineButtonCTA>Our Process</OutlineButtonCTA>
         </div>
       </div>
-      <div className="font-dmsans mt-12 px-[20px] bg-neutral-900 flex flex-col gap-6">
+      <div className=" mt-12 px-[20px] bg-neutral-900 flex flex-col gap-6">
         <div className="px-4 my-20">
           <CenteredImage />
           <div className="flex flex-col items-center gap-3 mt-12 text-center text-neutral-200">
@@ -282,7 +286,7 @@ function Home(props) {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

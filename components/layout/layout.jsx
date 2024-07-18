@@ -14,7 +14,7 @@ export default function Layout(props) {
             </Head>
             <Header />
             <Menu />
-            <main className='z-1'>{props.children}</main>
+            <main>{props.children}</main>
             <FooterComponent />
         </Fragment>
     )

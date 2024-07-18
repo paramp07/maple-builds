@@ -74,7 +74,7 @@ export default function Menu() {
           initial="initial"
           animate="animate"
           exit="exit"
-          className="fixed font-manrope top-0 left-0 w-full h-screen p-6 text-neutral-200 origin-top bg-neutral-900 z-[98]"
+          className="fixed font-manrope top-0 left-0 w-full h-screen p-6 text-neutral-200 origin-top bg-neutral-900 z-[9]"
         >
           <div className="flex flex-col h-full">
             <motion.div
