@@ -21,7 +21,8 @@ module.exports = {
       'proxima': ['proxima-nova', 'sans-serif'],
       'dmsans': ['DM Sans', 'sans-serif'],
       'manrope': ["Manrope", "sans-serif", "system-ui"],
-      'mulish': ["Mulish", "sans-serif", "system-ui"]
+      'mulish': ["Mulish", "sans-serif", "system-ui"],
+      'cormorant': ["Cormorant Garamond", 'sans-serif']
        // Ensure fonts with spaces have " " surrounding it.
     },
     container: {
