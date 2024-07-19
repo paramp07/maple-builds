@@ -1,17 +1,6 @@
-import ShortInfoImage from "@/components/sections/ShortInfoImage";
-import TeamMembersSection from "@/components/team/TeamMembersSection";
 import Image from "next/image";
-import * as Accordion from "@radix-ui/react-accordion";
-import classNames from "classnames";
-import { ChevronDownIcon } from "@radix-ui/react-icons";
 import React from "react";
-import CTA from "@/components/sections/CTA";
-import { getAllTeamMembers } from "@/src/app/lib/sanity";
-import { getAboutPage } from "@/src/app/lib/sanity";
-import { urlFor } from "@/src/app/lib/urlFor";
 import { NextSeo } from "next-seo";
-import { useContext } from "react";
-import { MenuContext } from "@/components/layout/menuContext";
 import { TeamMembers } from "@/components/component/team-members";
 import Head from "next/head";
 

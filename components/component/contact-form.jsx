@@ -20,29 +20,33 @@ To read more about using these font, please visit the Next.js documentation:
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
-import { UploadIcon } from "lucide-react";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import Head from "next/head";
 
 export function ContactForm() {
   return (
     <div className="w-full max-w-2xl px-4 py-12 mx-auto font-manrope sm:px-6 lg:px-8">
+      <Head>
+        <script async src='https://app.jobtread.com/web-form.js'></script>
+      </Head>
       <h2 className="mb-6 text-3xl font-semibold text-neutral-700">
-        Fill out the form below or call us
+        Fill out the form below or call us
       </h2>
-      <form className="mt-8 space-y-8">
+      <form
+        className="mt-8 space-y-8"
+        data-jobtread-web-form="true"
+        data-key="22SQURKRSu8NXHQnUnEhrccUPmnuKYTuZP"
+        data-success-message="Thank you for your your submission. A team member will be in touch shortly. We look forward to building your vision!"
+      >
         {[
-          { id: "fullName", label: "Full Name", type: "text" },
-          { id: "email", label: "Email", type: "email" },
-          { id: "phoneNumber", label: "Phone Number", type: "tel" },
-          { id: "projectAddress", label: "Project Address", type: "text" },
-          { id: "projectDetails", label: "Project Details", type: "textarea" },
-          { id: "filesPhotos", label: "Files & Photos", type: "file" },
-          {
-            id: "hearAboutUs",
-            label: "How did you hear about us?",
-            type: "text",
-          },
-          { id: "referredBy", label: "Referred by", type: "text" },
-        ].map(({ id, label, type }) => (
+          { id: "fullName", name: "contact.name", label: "Full Name", type: "text" },
+          { id: "email", name: "contact.email", label: "Email", type: "email" },
+          { id: "phoneNumber", name: "contact.phone", label: "Phone Number", type: "tel" },
+          { id: "projectAddress", name: "location.address", label: "Project Address", type: "text" },
+          { id: "projectDetails", name: "project.details", label: "Project Details", type: "textarea" },
+          { id: "filesPhotos", name: "project.files", label: "Files & Photos", type: "file" },
+          { id: "referredBy", name: "contact.referredBy", label: "Referred by", type: "text" },
+        ].map(({ id, name, label, type }) => (
           <div key={id} className="relative text-[1.2rem]">
             {type === "textarea" ? (
               <div className="relative">
@@ -54,6 +58,7 @@ export function ContactForm() {
                 </label>
                 <textarea
                   id={id}
+                  name={name}
                   placeholder=" "
                   className="w-full h-32 p-2 mt-10 transition-colors duration-300 border resize-none border-muted-foreground focus:outline-none focus:border-primary peer"
                 />
@@ -62,7 +67,7 @@ export function ContactForm() {
               <div className="mt-[-15px] space-y-2 text-gray-600">
                 <Label htmlFor={id}>{label}</Label>
                 <div className="flex items-center gap-2 text-gray-600">
-                  <Input id={id} type="file" className="flex-1 text-gray-600" />
+                  <Input id={id} name={name} type="file" className="flex-1 text-gray-600" />
                 </div>
               </div>
             ) : (
@@ -70,6 +75,7 @@ export function ContactForm() {
                 <input
                   type={type}
                   id={id}
+                  name={name}
                   placeholder=" "
                   className="w-full py-[10px] transition-colors duration-300 border-b border-muted-foreground focus:outline-none focus:border-primary peer"
                 />
@@ -83,10 +89,33 @@ export function ContactForm() {
             )}
           </div>
         ))}
+        <div className="relative text-[1.2rem] h-[70px] flex flex-col justify-end">
+          <Label htmlFor="hearAboutUs" className="absolute top-0 mt-[-5px] left-0 text-base text-gray-600 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-focus:text-gray-600 peer-focus:text-xs peer-focus:text-opacity-70">
+            How did you hear about us?
+          </Label>
+          <Select id="hearAboutUs" name="contact.hearAboutUs">
+            <SelectTrigger className="w-full py-[10px] transition-colors duration-300 border-b border-muted-foreground focus:outline-none focus:border-primary peer">
+              <SelectValue placeholder=" " />
+            </SelectTrigger>
+            <SelectContent className="font-manrope">
+              <SelectItem value="Word of Mouth (Recommendation)">Word of Mouth (Recommendation)</SelectItem>
+              <SelectItem value="Google">Google</SelectItem>
+              <SelectItem value="Yelp">Yelp</SelectItem>
+              <SelectItem value="Yard Sign">Yard Sign</SelectItem>
+              <SelectItem value="Vehicle Sign">Vehicle Sign</SelectItem>
+              <SelectItem value="Instagram">Instagram</SelectItem>
+              <SelectItem value="Facebook">Facebook</SelectItem>
+              <SelectItem value="TikTok">TikTok</SelectItem>
+              <SelectItem value="Youtube">Youtube</SelectItem>
+              <SelectItem value="F&F">F&F</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
         <div className="flex">
           <Button
             type="submit"
             className="px-8 rounded-none bg-neutral-900 text-primary-foreground hover:bg-neutral-800/80"
+            data-submit-button="true"
           >
             Request a Consult
           </Button>
@@ -95,5 +124,3 @@ export function ContactForm() {
     </div>
   );
 }
-
-
