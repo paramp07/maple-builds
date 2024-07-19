@@ -18,10 +18,6 @@ import Head from "next/head";
 function AboutPage(props) {
   const { members, aboutPage } = props;
 
-  const { dark, setDark } = useContext(MenuContext);
-
-  setDark(false);
-
   const SEO = {
     title: "About",
     description: "About Maple Builds",
@@ -31,7 +27,7 @@ function AboutPage(props) {
     <>
       <NextSeo {...SEO} />
       <Head>
-        <meta name="theme-color" content="#f9fafb" />
+        <meta name="theme-color" content="#FFFFFF" />
       </Head>
       <div className="font-mulish pt-[10rem] antialiased">
         <div className="px-[20px]">
