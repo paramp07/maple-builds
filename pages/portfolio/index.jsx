@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import { NextSeo } from "next-seo";
+import { ProjectsGallery } from "@/components/component/projects-gallery";
 
 function Portfolio(props) {
   const SEO = {
@@ -11,7 +12,7 @@ function Portfolio(props) {
   return (
     <>
       <NextSeo {...SEO} />
-      <section className="pt-[10rem]">
+      <section className="pt-[10rem] font-dmsans">
         <section className="w-[90%] mx-auto">
           <div className="">
             <h2 className="uppercase text-neutral-600">
@@ -33,6 +34,14 @@ function Portfolio(props) {
               "https://images.squarespace-cdn.com/content/v1/64025cbc903531470f0036d6/3519495f-1d0e-4b95-8691-50247272778b/9.JPG?format=2500w"
             }
           />
+        </section>
+        <section className="mt-10 w-[90%] mx-auto space-y-4">
+          <div className="flex flex-col gap-8">
+            <h1 className="text-3xl font-medium">Our Projects</h1>
+            <p >Trust us to elevate your visitors' experience through memorable and immersive experiential design. With over 100 years of experience across 40 countries, we are experts in designing and building world-class interior and museum fit-outs, large events, brand experiences and exhibitions</p>
+          </div>
+          <span className="block border-t border-neutral-300 w-100"></span>
+          <ProjectsGallery />
         </section>
       </section>
     </>
