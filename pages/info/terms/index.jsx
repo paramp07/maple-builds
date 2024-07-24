@@ -8,7 +8,7 @@ export default function TermsConditionsPage(props) {
   return (
     <>
       <NextSeo {...SEO} />
-      <div className="font-dmsans">
+      <div className="font-dmsans pt-20">
         <h1 className="my-16 text-4xl font-bold text-center">
           Terms and Conditions
         </h1>

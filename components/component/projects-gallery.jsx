@@ -23,11 +23,15 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
+import { urlFor } from "@/src/app/lib/urlFor";
 
 
-export function ProjectsGallery() {
+export function ProjectsGallery(props) {
+  const {projects} = props;
+  console.log(projects[0].mainImage)
+  
   const [activeFilter, setActiveFilter] = useState("all");
-  const projects = [
+  const projects1 = [
     {
       id: 1,
       image: "/placeholder.svg",
@@ -67,8 +71,8 @@ export function ProjectsGallery() {
   ];
   const filteredProjects =
     activeFilter === "all"
-      ? projects
-      : projects.filter(
+      ? projects1
+      : projects1.filter(
           (project) => project.type.toLowerCase() === activeFilter
         );
   return (
@@ -116,10 +120,10 @@ export function ProjectsGallery() {
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {filteredProjects.map((project) => (
+        {projects.map((project) => (
           <Link
-            key={project.id}
-            href="/"
+            key={project._id}
+            href={project.slug}
             className="relative overflow-hidden group"
             style={{
               borderImage:
@@ -127,15 +131,16 @@ export function ProjectsGallery() {
             }}
           >
             <Image
-              src="https://images.squarespace-cdn.com/content/v1/64025cbc903531470f0036d6/5adaf197-109b-4c7d-a610-39cff63616c7/8.JPG?format=2500w"
-              alt={project.name}
-              width={600}
+              quality={100}
+              src={urlFor(project.mainImage).url()}
+              alt={project.title}
+              width={900}
               height={400}
               className="w-full aspect-[2/3] object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
             />
             <div className="absolute inset-x-0 bottom-0 p-3 text-white transition-colors">
-              <h3 className="text-lg font-semibold">{project.name}</h3>
-              <p className="text-sm">{project.type}</p>
+              <h3 className="text-lg font-semibold">{project.title}</h3>
+              <p className="text-sm capitalize">{project.type}</p>
             </div>
           </Link>
         ))}

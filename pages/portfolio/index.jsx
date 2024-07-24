@@ -2,12 +2,15 @@ import Image from "next/image";
 import React from "react";
 import { NextSeo } from "next-seo";
 import { ProjectsGallery } from "@/components/component/projects-gallery";
+import { getAllRemodels, getRemodelsPage } from "@/src/app/lib/sanity";
 
 function Portfolio(props) {
+  const {projects, remodelsPage} = props;
   const SEO = {
     title: "Portfolio",
     description: "Portfolio for Maple Builds",
   };
+  console.log(projects)
 
   return (
     <>
@@ -41,7 +44,7 @@ function Portfolio(props) {
             <p >Trust us to elevate your visitors' experience through memorable and immersive experiential design. With over 100 years of experience across 40 countries, we are experts in designing and building world-class interior and museum fit-outs, large events, brand experiences and exhibitions</p>
           </div>
           <span className="block border-t border-neutral-300 w-100"></span>
-          <ProjectsGallery />
+          <ProjectsGallery projects={projects}/>
         </section>
       </section>
     </>
@@ -49,3 +52,15 @@ function Portfolio(props) {
 }
 
 export default Portfolio;
+
+
+export async function getStaticProps() {
+  const projects = await getAllRemodels();
+  const remodelsPage = await getRemodelsPage();
+
+  return {
+      props: {
+          projects, remodelsPage
+      },
+  }
+}
