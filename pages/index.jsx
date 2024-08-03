@@ -11,37 +11,14 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import Slider from "@/components/component/home-slider";
+import OutlineButtonCTA from "@/components/component/outline-button-cta";
 
 function Home(props) {
   return (
     <div className="font-dmsans">
       <div className="h-[100svh] ">
-        <div className="relative h-full">
-          <div className="absolute w-full h-full overflow-y-hidden">
-            <div className=" z-[-1] absolute object-cover w-full h-full bg-black opacity-40"></div>
-            <Image
-              quality={100}
-              className="object-cover relative w-full z-[-2] h-full"
-              width={1920}
-              height={600}
-              src={
-                "https://st.hzcdn.com/simgs/pictures/kitchens/modern-renovation-for-a-1980s-rancher-tammie-ladd-design-inc-img~4811b6e006a7b479_14-7284-1-81c8891.jpg"
-              }
-            />
-          </div>
-          <div className="relative h-full text-white px-[20px] w-full ">
-            <div className="flex flex-col justify-end h-full pb-[2.5rem] text-[2rem] md:text-[4rem]">
-              <h1 className="font-medium tracking-[.04em] uppercase font-mulish">Sedgefield Modern</h1>
-              <Link
-                href="/"
-                className="flex items-center gap-2 py-2 text-base transition-all ease-in opacity-50 hover:opacity-80"
-              >
-                <p className="flex ">See More</p>
-                <RightIcon size={20} />
-              </Link>
-            </div>
-          </div>
-        </div>
+        <Slider />
       </div>
       <div className=" px-[20px] mt-20 flex flex-col gap-16">
         <div className="flex flex-col gap-8">
@@ -57,7 +34,7 @@ function Home(props) {
             world-class interior and museum fit-outs, large events, brand
             experiences and exhibitions
           </p>
-          <OutlineButtonCTA>View More</OutlineButtonCTA>
+          <OutlineButtonCTA href={"/about"}>View More</OutlineButtonCTA>
         </div>
         <div className="hidden"></div>
         <div className="h-[60svh]">
@@ -285,35 +262,6 @@ function Home(props) {
   );
 }
 
-const OutlineButtonCTA = ({ href, children, className = '', darkMode }) => {
-  const [isDarkMode, setIsDarkMode] = useState(darkMode);
-
-  useEffect(() => {
-    setIsDarkMode(darkMode);
-  }, [darkMode]);
-
-  return (
-    <Link href={href} className={`relative inline-block w-fit h-fit group ${className}`}>
-          <button className={`relative px-3 py-1 border rounded-full whitespace-nowrap overflow-hidden ${isDarkMode ? 'border-neutral-100' : 'border-black/60'}`}>
-        <span className={`absolute top-0 left-0 w-full h-0 transition-all duration-200 ease-out transform group-hover:h-full ${isDarkMode ? 'bg-neutral-100' : 'bg-neutral-950'} opacity-90`}></span>
-        <span className={`relative flex items-center gap-2 ${isDarkMode ? 'group-hover:text-black' : 'group-hover:text-white'}`}>
-          <p className={`text-sm font-normal truncate ${isDarkMode ? 'text-white group-hover:text-black' : 'group-hover:text-white'}`}>
-            {children}
-          </p>
-          <ArrowUpRight size={20} strokeWidth={1.2} />
-        </span>
-      </button>
-    </Link>
-  );
-};
-
-
-OutlineButtonCTA.defaultProps = {
-  href: "/",
-  children: "Default Button Text",
-  className: "",
-  darkMode: false,
-};
 
 const CenteredImage = ({
   largerImageUrl,
