@@ -51,7 +51,7 @@ export default function Header() {
         }}
         animate={hidden && !open ? "hidden" : "visible"}
         transition={{ duration: 0.35, ease: "easeInOut" }}
-        className={`flex fixed w-full top-0 z-10 ${isHome ? "text-white" : "mix-blend-exclusion"} left-0 items-center justify-between py-2`}
+        className={`flex fixed px-2 w-full top-0 z-10 ${isHome ? "text-white" : "mix-blend-exclusion"} left-0 items-center justify-between py-3`}
       >
         <Link href="/" className="px-4 w-fit" onClick={handleClick}>
           <Image
@@ -63,7 +63,7 @@ export default function Header() {
           />
         </Link>
         <div className="p-[20px] block h-full" onClick={toggleMenu}>
-          <div className="hamburger-icon flex flex-col justify-between w-[3rem] h-[.6rem] mix-blend-exclusion cursor-pointer">
+          <div className="hamburger-icon flex flex-col justify-between w-[3rem] md:w-[4rem] h-[.6rem] mix-blend-exclusion cursor-pointer">
             <motion.span
               variants={{
                 closed: { y: "150%" },

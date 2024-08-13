@@ -9,6 +9,7 @@ import { MenuContext } from "../layout/menuContext";
 import { useContext, useState } from "react";
 import Link from "next/link";
 
+
 const navLinks = [
   { title: "Home", href: "/" },
   { title: "About", href: "/about" },
@@ -18,10 +19,7 @@ const navLinks = [
 ];
 export default function Menu() {
   const { open, setOpen } = useContext(MenuContext);
-  const toggleMenu = () => {
-    setOpen((prevOpen) => !prevOpen);
-  };
-  const { finished, setFinished } = useContext(MenuContext);
+  
 
   const menuVars = {
     initial: {
@@ -82,7 +80,7 @@ export default function Menu() {
               initial="initial"
               animate="open"
               exit="initial"
-              className="flex flex-col h-full gap-4 mt-[8rem] "
+              className="flex flex-col h-full  gap-4 mt-[8rem] "
             >
               {navLinks.map((link, index) => {
                 return (

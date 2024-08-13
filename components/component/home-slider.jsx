@@ -47,7 +47,7 @@ export default function Slider() {
   return (
     <main className="flex flex-col items-center justify-between h-[100svh] ">
       <MotionConfig transition={{ ease: [0.37, 0, 0.63, 1], duration: 1 }}>
-        <div className="relative overflow-hidden w-full h-full max-w-[1500px] flex items-center">
+        <div className="relative flex items-center w-full h-full overflow-hidden">
           {/* List of images */}
           <motion.div
             className="flex w-auto w-full h-full flex-nowrap"
@@ -102,7 +102,7 @@ const Project = ({
         />
       </div>
       <div className="relative h-full text-white px-[20px] w-screen">
-        <div className="flex flex-col justify-end h-full pb-[1rem] text-[2rem] md:text-[4rem]">
+        <div className="flex flex-col justify-end h-full pb-[1rem] text-[2rem]">
           <h1 className="font-medium tracking-[.04em] uppercase font-mulish">
             {title}
           </h1>

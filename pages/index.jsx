@@ -20,8 +20,8 @@ function Home(props) {
       <div className="h-[100svh] ">
         <Slider />
       </div>
-      <div className=" px-[20px] mt-20 flex flex-col gap-16">
-        <div className="flex flex-col gap-8">
+      <div className=" px-[20px] mt-20 flex flex-col md:flex-row gap-16">
+        <div className="flex flex-col gap-8 ">
           <h1 className="text-[2rem] font-medium leading-10">
             Maple Builds is a construction company dedicated to transforming
             clients.
