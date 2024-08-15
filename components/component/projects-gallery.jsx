@@ -28,57 +28,14 @@ import { urlFor } from "@/src/app/lib/urlFor";
 
 export function ProjectsGallery(props) {
   const {projects} = props;
-  console.log(projects[0].mainImage)
+  console.log(projects)
   
   const [activeFilter, setActiveFilter] = useState("all");
-  const projects1 = [
-    {
-      id: 1,
-      image: "/placeholder.svg",
-      name: "Luxury Bathroom Remodel",
-      type: "Bathroom remodel",
-    },
-    {
-      id: 2,
-      image: "/placeholder.svg",
-      name: "Modern Custom Home",
-      type: "Custom home",
-    },
-    {
-      id: 3,
-      image: "/placeholder.svg",
-      name: "Gourmet Kitchen Renovation",
-      type: "Kitchen remodel",
-    },
-    {
-      id: 4,
-      image: "/placeholder.svg",
-      name: "Cozy Living Room Addition",
-      type: "Living utility",
-    },
-    {
-      id: 5,
-      image: "/placeholder.svg",
-      name: "Spacious Home Extension",
-      type: "Home addition",
-    },
-    {
-      id: 6,
-      image: "/placeholder.svg",
-      name: "Elegant Bathroom Upgrade",
-      type: "Bathroom remodel",
-    },
-  ];
-  const filteredProjects =
-    activeFilter === "all"
-      ? projects1
-      : projects1.filter(
-          (project) => project.type.toLowerCase() === activeFilter
-        );
+  
   return (
-    <div className=" mx-auto py-8 md:py-12">
-      <div className="flex justify-between items-center mb-6 md:mb-8">
-        <div className="flex gap-2 flex-wrap">
+    <div className="py-8 mx-auto md:py-12">
+      <div className="flex items-center justify-between mb-6 md:mb-8">
+        <div className="flex flex-wrap gap-2">
           <Button
             variant={activeFilter === "all" ? "primary" : "outline"}
             onClick={() => setActiveFilter("all")}
@@ -119,7 +76,7 @@ export function ProjectsGallery(props) {
           </Button>
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         {projects.map((project) => (
           <Link
             key={project._id}
