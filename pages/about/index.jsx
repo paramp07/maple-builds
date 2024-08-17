@@ -3,6 +3,10 @@ import React from "react";
 import { NextSeo } from "next-seo";
 import { TeamMembers } from "@/components/component/team-members";
 import Head from "next/head";
+import { motion, Variants } from "framer-motion";
+
+
+
 
 function AboutPage(props) {
   const { members, aboutPage } = props;
@@ -27,7 +31,15 @@ function AboutPage(props) {
             About Us
           </h1>
         </div>
-        <div className="w-full h-[110svh] mt-28">
+        <motion.div className="w-full h-[110svh] mt-28 " 
+      
+    >
+      <motion.div initial={{ top:'100%'}}
+      whileInView={{ top:"0%"}}
+      viewport={{ once: true }}
+      transition={{ duration: 0.9 }}
+      className="h-full w-full bg-white absolute z-10">
+      </motion.div>
           <Image
             className="object-cover h-full"
             quality={100}
@@ -37,7 +49,7 @@ function AboutPage(props) {
               "            https://st.hzcdn.com/simgs/pictures/kitchens/modern-condo-with-rustic-touch-home-style-img~668173580d742dd6_14-5573-1-a543317.jpg"
             }
           />
-        </div>
+        </motion.div>
         <section className="w-[90%] mx-auto mt-10">
           <div className="flex flex-col gap-1">
             <h2 className="text-xl font-semibold text-gray-400 uppercase">
@@ -72,7 +84,7 @@ function AboutPage(props) {
             }
           />
         </section>
-        <section className="w-full mt-10 font-dmsans bg-neutral-100">
+        <section className="w-full mt-10 font-dmsans bg-neutral-100" >
           <div className="w-[90%] mx-auto">
             <div className="py-10 space-y-4 text-center">
               <h1 className="w-full text-3xl font-semibold tracking-tight font-manrope">
