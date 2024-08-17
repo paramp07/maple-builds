@@ -2,7 +2,7 @@ import Image from "next/image";
 import React from "react";
 import { NextSeo } from "next-seo";
 import { ProjectsGallery } from "@/components/component/projects-gallery";
-import { getAllRemodels, getRemodelsPage } from "@/src/app/lib/sanity";
+import { getAllProjects, getAllRemodels, getRemodelsPage } from "@/src/app/lib/sanity";
 
 function Portfolio(props) {
   const {projects, remodelsPage} = props;
@@ -55,7 +55,7 @@ export default Portfolio;
 
 
 export async function getStaticProps() {
-  const projects = await getAllRemodels();
+  const projects = await getAllProjects();
   const remodelsPage = await getRemodelsPage();
 
   return {

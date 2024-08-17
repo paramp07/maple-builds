@@ -17,6 +17,11 @@ export const client = createClient({
 // ** FUNCTIONS **
 
 // PROJECT LIST SECTION
+export async function getAllProjects() {
+    const events = await client.fetch(`*[_type == "projects"]`)
+    return events
+}
+
 export async function getAllCustomHomeBuilds() {
     const events = await client.fetch(`*[_type == "projects" && type == "customHomeBuild"]`)
     return events
