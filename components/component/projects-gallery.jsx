@@ -25,13 +25,25 @@ import Image from "next/image";
 import Link from "next/link";
 import { urlFor } from "@/src/app/lib/urlFor";
 
-
 export function ProjectsGallery(props) {
-  const {projects} = props;
-  console.log(projects)
-  
+  const { projects } = props;
   const [activeFilter, setActiveFilter] = useState("all");
-  
+
+  // Map Sanity project types to filter button values
+  const typeMapping = {
+    "bathroom remodel": "bathroomRemodel",
+    "custom home": "customHomeBuild",
+    "kitchen remodel": "kitchenRemodel",
+    "living utility": "customProjects",
+    "home addition": "addition"
+  };
+
+  // Filter projects based on active filter
+  const filteredProjects = projects.filter(project => {
+    if (activeFilter === "all") return true;
+    return project.type === typeMapping[activeFilter];
+  });
+
   return (
     <div className="py-8 mx-auto md:py-12">
       <div className="flex items-center justify-between mb-6 md:mb-8">
@@ -43,9 +55,7 @@ export function ProjectsGallery(props) {
             All
           </Button>
           <Button
-            variant={
-              activeFilter === "bathroom remodel" ? "primary" : "outline"
-            }
+            variant={activeFilter === "bathroom remodel" ? "primary" : "outline"}
             onClick={() => setActiveFilter("bathroom remodel")}
           >
             Bathroom remodels
@@ -77,7 +87,7 @@ export function ProjectsGallery(props) {
         </div>
       </div>
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-        {projects.map((project) => (
+        {filteredProjects.map((project) => (
           <Link
             key={project._id}
             href={project.slug}
