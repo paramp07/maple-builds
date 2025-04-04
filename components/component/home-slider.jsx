@@ -57,7 +57,7 @@ export default function Slider() {
               <Project />
             ))}
           </motion.div>
-          <div className="absolute z-10 flex bottom-5 right-2 px-[15px]">
+          <div className="absolute z-9 flex bottom-5 right-2 px-[15px]">
             
             {/* Left/right controls */}
             <AnimatePresence>
@@ -103,7 +103,7 @@ const Project = ({
       </div>
       <div className="relative h-full text-white px-[20px] w-screen">
         <div className="flex flex-col justify-end h-full pb-[1rem] text-[2rem]">
-          <h1 className="font-medium tracking-[.04em] uppercase font-mulish">
+          <h1 className="font-medium text-[1.5rem] tracking-[.04em] uppercase font-montserrat">
             {title}
           </h1>
           <Link
