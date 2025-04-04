@@ -53,8 +53,8 @@ function Home(props) {
       </div>
       <div className="px-[20px] mt-12 flex flex-col  bg-neutral-200">
         <div className="flex flex-col gap-12 mb-16">
-          <div className="flex flex-col gap-2 mt-12 text-center">
-            <h1 className="text-6xl font-medium tracking-tight text-neutral-800">
+          <div className="flex flex-col gap-1 mt-12 text-center">
+            <h1 className="text-[3.5rem] font-medium tracking-tight text-neutral-800">
               What We Do
             </h1>
             <p className="text-lg">
@@ -262,6 +262,7 @@ function Home(props) {
   );
 }
 
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const CenteredImage = ({
   largerImageUrl,
@@ -269,23 +270,45 @@ const CenteredImage = ({
   smallerWidth,
   smallerHeight,
 }) => {
+  const { scrollYProgress } = useScroll();
+  
+  // Create smooth parallax effects with different intensities for each image
+  const largerImageY = useTransform(scrollYProgress, [0.8, 1], ["0%", "30%"]);
+  const smallerImageY = useTransform(scrollYProgress, [0.8, 1], ["0%", "-10%"]);
+
+  // Log scroll progress and transform values
+  scrollYProgress.onChange(value => {
+    console.log('Scroll Progress:', value);
+    console.log('Larger Image Y:', largerImageY.get());
+    console.log('Smaller Image Y:', smallerImageY.get());
+  });
+
   return (
-    <div className="relative w-full h-full">
-      <Image
-        className="object-cover h-full aspect-[3/5]"
-        quality={100}
-        width={1920}
-        height={1080}
-        src={largerImageUrl}
-      />
-      <div className="absolute inset-0 flex items-center justify-center">
+    <div className="relative w-full h-full overflow-hidden">
+      <motion.div
+        style={{ y: largerImageY }}
+        className="relative w-full h-full"
+      >
+        <Image
+          className="object-cover h-full aspect-[3/5]"
+          quality={100}
+          width={1920}
+          height={1080}
+          src={largerImageUrl}
+          alt="Background Image"
+        />
+      </motion.div>
+      <motion.div 
+        className="absolute inset-0 flex items-center justify-center"
+        style={{ y: smallerImageY }}
+      >
         <Image
           src={smallerImageUrl}
           alt="Smaller Image"
           width={smallerWidth}
           height={smallerHeight}
         />
-      </div>
+      </motion.div>
     </div>
   );
 };

@@ -26,7 +26,7 @@ export default function ProcessPage(props) {
         </section>
         <section className="w-full max-w-4xl mt-28">
           <Image
-            className="object-cover w-full mt-10 h-[100svh]"
+            className="object-cover w-full mt-10 h-[110svh]"
             alt="image"
             quality={100}
             width={1920}
