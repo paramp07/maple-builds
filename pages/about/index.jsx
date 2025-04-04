@@ -34,7 +34,7 @@ function AboutPage(props) {
               width={1920}
               height={1080}
               src={
-                "            https://st.hzcdn.com/simgs/pictures/kitchens/modern-condo-with-rustic-touch-home-style-img~668173580d742dd6_14-5573-1-a543317.jpg"
+                "https://st.hzcdn.com/simgs/pictures/kitchens/modern-condo-with-rustic-touch-home-style-img~668173580d742dd6_14-5573-1-a543317.jpg"
               }
             />
           </div>
