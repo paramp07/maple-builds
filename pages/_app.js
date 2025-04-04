@@ -6,11 +6,13 @@ import SEO from "../next-seo.config";
 import { MenuProvider } from "@/components/layout/menuContext";
 import { StyleProvider } from "@/lib/StyleContext";
 import { AnimatePresence } from "framer-motion";
+import ImagePreloader from '@/components/ImagePreloader';
 
 export default function App({ Component, pageProps, router }) {
   return (
     <>
       <StyleProvider>
+        <ImagePreloader />
         <DefaultSeo {...SEO} />
         <ReactLenis
           root

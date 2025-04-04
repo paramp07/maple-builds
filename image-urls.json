@@ -1,0 +1,120 @@
+{
+  "remoteUrls": [
+    {
+      "file": "pages\\_document.js",
+      "url": "https://kit.fontawesome.com/684ef667ca.js"
+    },
+    {
+      "file": "pages\\index.jsx",
+      "url": "https://images.squarespace-cdn.com/content/v1/64025cbc903531470f0036d6/f0ac559d-4b07-4bad-959a-d36cc9a27653/7.jpg?format=1500w"
+    },
+    {
+      "file": "pages\\index.jsx",
+      "url": "https://images.squarespace-cdn.com/content/v1/64025cbc903531470f0036d6/0def4828-a456-448e-acd2-9f2358584b2e/12.jpg?format=1500w"
+    },
+    {
+      "file": "components\\sections\\TestTestmonial.jsx",
+      "url": "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"
+    },
+    {
+      "file": "components\\sections\\TestTestmonial.jsx",
+      "url": "https://goranvrban.com/codepen/img2.jpg"
+    },
+    {
+      "file": "components\\sections\\TestTestmonial.jsx",
+      "url": "https://goranvrban.com/codepen/img3.jpg"
+    },
+    {
+      "file": "components\\sections\\TestTestmonial.jsx",
+      "url": "https://goranvrban.com/codepen/img5.jpg"
+    },
+    {
+      "file": "components\\sections\\TestTestmonial.jsx",
+      "url": "https://goranvrban.com/codepen/img6.jpg"
+    },
+    {
+      "file": "components\\sections\\Testimonials.jsx",
+      "url": "https://tuk-cdn.s3.amazonaws.com/can-uploader/testimonial-svg3.svg"
+    },
+    {
+      "file": "components\\sections\\Testimonials.jsx",
+      "url": "https://tuk-cdn.s3.amazonaws.com/can-uploader/testimonial-svg3.svg"
+    },
+    {
+      "file": "components\\component\\team-members.jsx",
+      "url": "https://images.seattletimes.com/wp-content/uploads/2022/01/01202022_chinatown02_174653.jpg?d=780x540"
+    },
+    {
+      "file": "components\\component\\contact-form.jsx",
+      "url": "https://app.jobtread.com/web-form.js"
+    }
+  ],
+  "localPaths": [
+    {
+      "file": "pages\\portfolio\\[id].jsx",
+      "path": "/images/wide-house3.jpg"
+    },
+    {
+      "file": "pages\\portfolio\\[id].jsx",
+      "path": "/images/wide-house3.jpg"
+    },
+    {
+      "file": "components\\sections\\ShortContact.jsx",
+      "path": "/email-icon.png"
+    },
+    {
+      "file": "components\\sections\\ShortContact.jsx",
+      "path": "/phone-icon.png"
+    }
+  ],
+  "sanityImages": [
+    {
+      "file": "pages\\process\\index.jsx",
+      "reference": "image"
+    },
+    {
+      "file": "pages\\portfolio\\[id].jsx",
+      "reference": "project.mainImage"
+    },
+    {
+      "file": "pages\\portfolio\\[id].jsx",
+      "reference": "image"
+    },
+    {
+      "file": "pages\\portfolio\\[id].jsx",
+      "reference": "image"
+    },
+    {
+      "file": "components\\team\\TeamMember.jsx",
+      "reference": "image"
+    },
+    {
+      "file": "components\\sections\\Testimonials.jsx",
+      "reference": "image"
+    },
+    {
+      "file": "components\\sections\\ShortInfoImage.jsx",
+      "reference": "image"
+    },
+    {
+      "file": "components\\sections\\OurWork.jsx",
+      "reference": "remodelImage"
+    },
+    {
+      "file": "components\\sections\\OurWork.jsx",
+      "reference": "customHomeImage"
+    },
+    {
+      "file": "components\\sections\\IntroSectionBackground.jsx",
+      "reference": "image"
+    },
+    {
+      "file": "components\\component\\projects-gallery.jsx",
+      "reference": "project.mainImage"
+    },
+    {
+      "file": "src\\app\\lib\\urlFor.js",
+      "reference": "source"
+    }
+  ]
+}

@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "extract-images": "node scripts/extractImageUrls.js"
   },
   "dependencies": {
     "@darkroom.engineering/hamo": "^0.6.46",
@@ -29,6 +30,7 @@
     "flowbite": "^1.8.1",
     "flowbite-react": "^0.5.0",
     "framer-motion": "^11.3.2",
+    "glob": "^11.0.1",
     "lenis": "^1.2.3",
     "lucide-react": "^0.378.0",
     "next": "13.4.12",
