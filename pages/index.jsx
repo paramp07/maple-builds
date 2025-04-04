@@ -13,6 +13,8 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import Slider from "@/components/component/home-slider";
 import OutlineButtonCTA from "@/components/component/outline-button-cta";
+import { useScroll, useTransform, motion } from 'framer-motion';
+import { useRef } from 'react';
 
 function Home(props) {
   return (
@@ -214,24 +216,7 @@ function Home(props) {
           </h1>
         </div>
         <span className="block w-full border-t border-neutral-300"></span>
-        <div className="flex flex-col gap-3">
-          <Image
-            className="object-cover w-full h-full aspect-[5/10]"
-            quality={100}
-            width={1920}
-            height={1080}
-            src="https://images.squarespace-cdn.com/content/v1/64025cbc903531470f0036d6/f0ac559d-4b07-4bad-959a-d36cc9a27653/7.jpg?format=1500w"
-            alt="Custom Image"
-          />
-          <Image
-            className="object-cover w-[75%] h-full aspect-[5/7] "
-            quality={100}
-            width={1920}
-            height={1080}
-            src="https://images.squarespace-cdn.com/content/v1/64025cbc903531470f0036d6/0def4828-a456-448e-acd2-9f2358584b2e/12.jpg?format=1500w"
-            alt="Custom Image"
-          />
-        </div>
+        <DualImageDisplay />
         <div className="flex flex-col gap-6">
           <p className="text-lg leading-snug text-neutral-800">
             We work with our clients' visions and industry leading professionals
@@ -262,7 +247,6 @@ function Home(props) {
   );
 }
 
-import { motion, useScroll, useTransform } from "framer-motion";
 
 const CenteredImage = ({
   largerImageUrl,
@@ -387,6 +371,53 @@ ProjectCard.defaultProps = {
   title: "Default Title",
   type: "Default Description",
   projectUrl: "/",
+};
+
+const DualImageDisplay = () => {
+  const container = useRef(null);
+  
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ["start end", "end start"]
+  });
+
+  const y1 = useTransform(scrollYProgress, [0, 1], ["-20%", "40%"]);
+  const y2 = useTransform(scrollYProgress, [0, 1], ["-60%", "10%"]);
+
+  return (
+    <div ref={container} className="flex flex-col gap-3">
+      <div className="relative overflow-hidden aspect-[5/10]">
+        <motion.div
+          style={{ y: y1 }}
+          className="absolute inset-0 h-[120%] w-full"
+        >
+          <Image
+            className="object-cover w-full h-full"
+            quality={100}
+            width={1920}
+            height={1080}
+            src="https://images.squarespace-cdn.com/content/v1/64025cbc903531470f0036d6/f0ac559d-4b07-4bad-959a-d36cc9a27653/7.jpg?format=1500w"
+            alt="Custom Image"
+          />
+        </motion.div>
+      </div>
+      <div className="relative overflow-hidden aspect-[5/7] w-[75%]">
+        <motion.div
+          style={{ y: y2 }}
+          className="absolute inset-0 h-[120%] w-full"
+        >
+          <Image
+            className="object-cover w-full h-full"
+            quality={100}
+            width={1920}
+            height={1080}
+            src="https://images.squarespace-cdn.com/content/v1/64025cbc903531470f0036d6/0def4828-a456-448e-acd2-9f2358584b2e/12.jpg?format=1500w"
+            alt="Custom Image"
+          />
+        </motion.div>
+      </div>
+    </div>
+  );
 };
 
 export async function getStaticProps() {
