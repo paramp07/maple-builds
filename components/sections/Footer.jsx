@@ -20,12 +20,10 @@ export default function Footer() {
   const currentYear = getCurrentYear();
 
   return (
-   
     <div>
       <div className="bg-[#141414] text-neutral-200 py-0 lg:px-12 font-dmsans">
-      
         <div className="flex flex-col lg:flex-row py-[5rem] mx-[1.1rem] space-y-12 lg:space-y-0 space-x-0 lg:space-x-2">
-        <Image priority className="w-[159px]" src={MapleLogo} height={400} />
+          <Image priority className="w-[159px]" src={MapleLogo} height={400} />
           <div className="flex flex-col space-x-0 space-y-12 flex-[3] lg:space-x-2 md:space-y-0 md:flex-row">
             <div className="flex-1">
               <div className="w-full space-y-4 mt-7">
@@ -37,7 +35,6 @@ export default function Footer() {
               </div>
             </div>
             <div className="flex-1">
-              
               <div className="space-y-4 mt-7">
                 <CustomLink
                   text="CUSTOM HOMES"
@@ -67,7 +64,7 @@ export default function Footer() {
               </p>
               <button
                 type="button"
-                class="text-white bg-blue-700 tracking-wide duration-200 hover:bg-blue-800 font-medium rounded-lg text-md px-6 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                className="text-gray-800 bg-gray-100 tracking-wide duration-200 hover:bg-gray-200 font-medium text-md px-6 py-2.5 me-2 mb-2 dark:bg-gray-600 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
               >
                 <Link href="/contact">Get In Touch With Us</Link>
               </button>
@@ -75,14 +72,14 @@ export default function Footer() {
           </div>
         </div>
         <hr className="h-[1px] border-white/10"></hr>
-        
-          <div className="flex flex-col items-center justify-between py-4 space-y-6 text-sm text-center lg:space-y-0 lg:text-left lg:flex-row text-white/40">
+
+        <div className="flex flex-col items-center justify-between py-4 space-y-6 text-sm text-center lg:space-y-0 lg:text-left lg:flex-row text-white/40">
           <motion.div
-          initial={{ opacity: 0, x:20}}
-          whileInView={{ opacity: 1, x:0}}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
-        >
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
+          >
             <div className="flex flex-col">
               <p>Copyright © 2024 Maple Builds</p>
               <p>
@@ -105,8 +102,8 @@ export default function Footer() {
                 </li>
               </ul>
             </div>
-            </motion.div>
-          </div>
+          </motion.div>
+        </div>
       </div>
     </div>
   );
@@ -128,7 +125,6 @@ Icon.defaultProps = {
   width: ".9rem",
 };
 
-
 function CustomLink({ text, link }) {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -148,7 +144,9 @@ function CustomLink({ text, link }) {
         <ArrowUpRight
           size={35}
           strokeWidth={1}
-          className={`duration-300 ${isHovered ? 'text-gray-500' : 'text-gray-300'}`}
+          className={`duration-300 ${
+            isHovered ? "text-gray-500" : "text-gray-300"
+          }`}
         />
       </span>
     </Link>
