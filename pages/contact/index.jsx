@@ -15,7 +15,7 @@ export default function ContactPage() {
           </div>
         </section>
         <section className="w-[90%] mt-36 mx-auto text-lg flex-col flex gap-6">
-          <p className="font-light text-gray-500">
+          <p className="font-light text-gray-600">
             We’d love to hear from you.
           </p>
           <div className="flex flex-col gap-6 font-light text-neutral-700">
@@ -24,7 +24,7 @@ export default function ContactPage() {
                 <p className="">Number</p>
                 <Phone className="fill-neutral-400" stroke="false" size={17} />
               </div>
-              <div className="text-neutral-400">
+              <div className="text-neutral-500">
                 <p>(214) 270 1454</p>
               </div>
             </div>
@@ -37,7 +37,7 @@ export default function ContactPage() {
                   className="stroke-neutral-400"
                 />
               </div>
-              <div className="text-neutral-400">
+              <div className="text-neutral-500">
                 <p>hello@maplebuilds.com</p>
               </div>
             </div>
