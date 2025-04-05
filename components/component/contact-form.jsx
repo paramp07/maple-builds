@@ -24,6 +24,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import Head from "next/head";
 
 export function ContactForm() {
+  const smoothTransition = "transition-all duration-300 ease-[0.33,1,0.68,1]";
+  
   return (
     <div className="w-full max-w-2xl px-4 py-12 mx-auto font-manrope sm:px-6 lg:px-8">
       <Head>
@@ -40,34 +42,34 @@ export function ContactForm() {
       >
         {[
           { id: "fullName", name: "contact.name", label: "Full Name", type: "text" },
-          { id: "email", name: "contact.email", label: "Email", type: "email" },
-          { id: "phoneNumber", name: "contact.phone", label: "Phone Number", type: "tel" },
+          { id: "email", name: "contact.custom.22NQYSnwW7Qn", label: "Email", type: "email" },
+          { id: "phoneNumber", name: "contact.custom.22NQYSp3DCV8", label: "Phone Number", type: "tel" },
           { id: "projectAddress", name: "location.address", label: "Project Address", type: "text" },
-          { id: "projectDetails", name: "project.details", label: "Project Details", type: "textarea" },
+          { id: "projectDetails", name: "account.custom.22NQvgadiVVq", label: "Project Details", type: "textarea" },
           { id: "filesPhotos", name: "project.files", label: "Files & Photos", type: "file" },
-          { id: "referredBy", name: "contact.referredBy", label: "Referred by", type: "text" },
         ].map(({ id, name, label, type }) => (
           <div key={id} className="relative text-[1.2rem]">
             {type === "textarea" ? (
               <div className="relative">
                 <label
                   htmlFor={id}
-                  className="absolute top-0 left-0 text-base text-gray-600 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-focus:text-gray-600 peer-focus:text-xs peer-focus:text-opacity-70"
+                  className={`absolute top-0 left-0 text-base text-gray-600 ${smoothTransition} peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-focus:text-gray-600 peer-focus:text-xs peer-focus:text-opacity-70`}
                 >
                   {label}
                 </label>
+                
                 <textarea
                   id={id}
                   name={name}
                   placeholder=" "
-                  className="w-full h-32 p-2 mt-10 transition-colors duration-300 border resize-none border-muted-foreground focus:outline-none focus:border-primary peer"
+                  className={`w-full h-32 p-2 mt-10 border resize-none border-muted-foreground focus:outline-none focus:border-primary peer ${smoothTransition}`}
                 />
               </div>
             ) : type === "file" ? (
               <div className="mt-[-15px] space-y-2 text-gray-600">
                 <Label htmlFor={id}>{label}</Label>
                 <div className="flex items-center gap-2 text-gray-600">
-                  <Input id={id} name={name} type="file" className="flex-1 text-gray-600" />
+                  <Input id={id} name={name} type="file" className={`flex-1 text-gray-600 ${smoothTransition}`} />
                 </div>
               </div>
             ) : (
@@ -77,11 +79,11 @@ export function ContactForm() {
                   id={id}
                   name={name}
                   placeholder=" "
-                  className="w-full py-[10px] transition-colors duration-300 border-b border-muted-foreground focus:outline-none focus:border-primary peer"
+                  className={`w-full py-[10px] border-b border-muted-foreground focus:outline-none focus:border-primary peer`}
                 />
                 <label
                   htmlFor={id}
-                  className="absolute left-0 -top-3.5 text-gray-600 text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-xs peer-focus:text-opacity-70"
+                  className={`absolute left-0 -top-3.5 text-gray-600 text-sm ${smoothTransition} peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-xs peer-focus:text-opacity-70`}
                 >
                   {label}
                 </label>
@@ -89,15 +91,46 @@ export function ContactForm() {
             )}
           </div>
         ))}
+
+        {/* Project Type Select */}
         <div className="relative text-[1.2rem] h-[70px] flex flex-col justify-end">
-          <Label htmlFor="hearAboutUs" className="absolute top-0 mt-[-5px] left-0 text-base text-gray-600 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-focus:text-gray-600 peer-focus:text-xs peer-focus:text-opacity-70">
-            How did you hear about us?
+          <Label 
+            htmlFor="projectType" 
+            className={`absolute top-0 mt-[-5px] left-0 text-base text-gray-600 ${smoothTransition} peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-focus:text-gray-600 peer-focus:text-xs peer-focus:text-opacity-70`}
+          >
+            What Type of Project?*
           </Label>
-          <Select id="hearAboutUs" name="contact.hearAboutUs">
-            <SelectTrigger className="w-full py-[10px] transition-colors duration-300 border-b border-muted-foreground focus:outline-none focus:border-primary peer">
+          <Select id="projectType" name="account.custom.22NQvgKmQXRn" required>
+            <SelectTrigger className={`w-full py-[10px] border-b border-muted-foreground focus:outline-none focus:border-primary peer ${smoothTransition}`}>
               <SelectValue placeholder=" " />
             </SelectTrigger>
-            <SelectContent className="font-manrope">
+            <SelectContent className={`font-manrope ${smoothTransition}`}>
+              <SelectItem value="Custom Home Build">Custom Home Build</SelectItem>
+              <SelectItem value="Whole Home Remodel">Whole Home Remodel</SelectItem>
+              <SelectItem value="Kitchen Remodel">Kitchen Remodel</SelectItem>
+              <SelectItem value="Bathroom Remodel">Bathroom Remodel</SelectItem>
+              <SelectItem value="Home Addition">Home Addition</SelectItem>
+              <SelectItem value="Other Home Interior (Flooring, Painting, etc.)">Other Home Interior (Flooring, Painting, etc.)</SelectItem>
+              <SelectItem value="Other Home Exterior (Roof, Backyard, Landscaping, Fence, Patio, etc.)">Other Home Exterior (Roof, Backyard, Landscaping, Fence, Patio, etc.)</SelectItem>
+              <SelectItem value="Commercial">Commercial</SelectItem>
+              <SelectItem value="Other">Other</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+
+        {/* How did you hear about us Select */}
+        <div className="relative text-[1.2rem] h-[70px] flex flex-col justify-end">
+          <Label 
+            htmlFor="hearAboutUs" 
+            className={`absolute top-0 mt-[-5px] left-0 text-base text-gray-600 ${smoothTransition} peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-440 peer-focus:text-gray-600 peer-focus:text-xs peer-focus:text-opacity-70`}
+          >
+            How did you hear about us?
+          </Label>
+          <Select id="hearAboutUs" name="account.custom.22NQvddLPfD2">
+            <SelectTrigger className={`w-full py-[10px] border-b border-muted-foreground focus:outline-none focus:border-primary peer ${smoothTransition}`}>
+              <SelectValue placeholder=" " />
+            </SelectTrigger>
+            <SelectContent className={`font-manrope ${smoothTransition}`}>
               <SelectItem value="Word of Mouth (Recommendation)">Word of Mouth (Recommendation)</SelectItem>
               <SelectItem value="Google">Google</SelectItem>
               <SelectItem value="Yelp">Yelp</SelectItem>
@@ -114,7 +147,7 @@ export function ContactForm() {
         <div className="flex">
           <Button
             type="submit"
-            className="px-8 rounded-none bg-neutral-900 text-primary-foreground hover:bg-neutral-800/80"
+            className={`px-8 rounded-none bg-neutral-900 text-primary-foreground hover:bg-neutral-800/80 ${smoothTransition}`}
             data-submit-button="true"
           >
             Request a Consult
