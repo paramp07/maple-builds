@@ -4,114 +4,152 @@ import { getProcessPage, getProcesses } from "@/src/app/lib/sanity";
 import { urlFor } from "@/src/app/lib/urlFor";
 import { NextSeo } from "next-seo";
 import Image from "next/image";
+import { useContext, useRef } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { MenuContext } from "@/components/layout/menuContext";
+import {
+  translate,
+  fadeUp,
+  reveal,
+  textFadeUp,
+} from "@/animations/pageAnimations";
 
 export default function ProcessPage(props) {
+  const body = useRef(null);
   const { processPage, processes } = props;
+  const { menuExited } = useContext(MenuContext);
   const SEO = {
     title: "Process",
     description: "Learn about our Process",
   };
 
   return (
-    <>
+    <div ref={body}>
       <NextSeo {...SEO} />
-      <section className="pt-[10rem] font-dmsans">
-        <section className="w-[90%] mx-auto">
-          <div className="">
-            <h2 className="uppercase text-neutral-600">How we do things</h2>
-            <h1 className="text-6xl mt-3 font-semibold text-neutral-800  tracking-[-4px]">
-              Our Process
-            </h1>
-          </div>
-        </section>
-        <section className="w-full max-w-4xl mt-28">
-          <Image
-            className="object-cover w-full mt-10 h-[110svh]"
-            alt="image"
-            quality={100}
-            width={1920}
-            height={1080}
-            priority
-            src={
-              "https://st.hzcdn.com/simgs/pictures/bathrooms/modern-charm-spanish-master-suite-sato-architects-inc-img~34210e170b7739b5_14-3674-1-511f444.jpg"
-            }
-          />
-        </section>
-        <section className="flex flex-col mt-4">
-          <Process />
-          <Process hasBackground={true}/>
-          <Process />
-          <Process />
-        </section>
-        <section className="px-[20px] mt-10">
-          <div className="flex flex-col px-8 py-16 bg-neutral-800 text-neutral-100">
-            <h1 className="text-4xl tracking-wide">
-              How do we manage our projects?
-            </h1>
-            <p className="mt-4 leading-8 ">
-              We use JobTread, the leading construction management software, so
-              you can track and manage your project in one place. With real-time
-              updates, clear financial insights, and centralized communication,
-              JobTread simplifies your build from start to finish.
-            </p>
-            <div className="mt-4 overflow-hidden">
-              <Image
-                width={400}
-                height={400}
-                src={
-                  "https://images.squarespace-cdn.com/content/v1/64025cbc903531470f0036d6/d932df31-3838-418e-b199-2adea2c9ca4f/our_team_hero.jpg?format=2500w"
-                }
-              />
+      <AnimatePresence mode="">
+        <section className="pt-[10rem] font-dmsans">
+          <section className="w-[90%] mx-auto">
+            <div className="font-mulish">
+              <div className="overflow-hidden">
+                <motion.h2
+                  variants={translate}
+                  initial="initial"
+                  animate={menuExited ? "animate" : "initial"}
+                  className="overflow-hidden uppercase text-neutral-600"
+                >
+                  How we do things
+                </motion.h2>
+              </div>
+              <div className="overflow-hidden">
+                <motion.h1
+                  variants={fadeUp}
+                  initial="initial"
+                  animate={menuExited ? "animate" : "initial"}
+                  className="text-6xl mt-3  font-semibold text-neutral-800 tracking-[-4px]"
+                >
+                  Our Process
+                </motion.h1>
+              </div>
             </div>
-          </div>
-        </section>
-        <section className="mx-[20px] mt-20 flex flex-col gap-[12rem] z-1 pb-28">
-          <InfoSection />
-          <InfoSection title={"View Job Documents"} />
-          <InfoSection title={"Digitally Approve Work"} />
-        </section>
-        <section className="">
-          <div className="flex flex-col gap-6 px-8 py-10 text-center text-neutral-900 bg-neutral-200">
-            <h1 className="text-4xl font-medium leading-relaxed">
-              Using Your Client Portal
-            </h1>
-            <p className="leading-relaxed">
-              Watch the video below for a brief introduction on how you'd use
-              your client portal. Once you have signed on to build your project,
-              the Help Guide below will answer any additional questions you may
-              have.
-            </p>
-            <div
-              className="mt-4 video drop-shadow-xl"
-              style={{
-                position: "relative",
-                paddingBottom: "56.25%" /* 16:9 */,
-                paddingTop: 25,
-                height: 0,
-              }}
-            >
-              <iframe
+          </section>
+          <section className="w-full max-w-4xl mt-28">
+            <div className="w-full h-[110svh] mt-28 relative overflow-hidden">
+              <motion.div
+                variants={reveal}
+                initial="initial"
+                animate={menuExited ? "animate" : "initial"}
+                className="relative w-full h-full"
+              >
+                <Image
+                  className="object-cover h-full"
+                  priority
+                  quality={100}
+                  width={1920}
+                  height={1080}
+                  src={
+                    "https://st.hzcdn.com/simgs/pictures/bathrooms/modern-charm-spanish-master-suite-sato-architects-inc-img~34210e170b7739b5_14-3674-1-511f444.jpg"
+                  }
+                />
+              </motion.div>
+            </div>
+          </section>
+          <section className="flex flex-col mt-4">
+            <Process />
+            <Process hasBackground={true} />
+            <Process />
+            <Process />
+          </section>
+          <section className="px-[20px] mt-10">
+            <div className="flex flex-col px-8 py-16 bg-neutral-800 text-neutral-100">
+              <h1 className="text-4xl tracking-wide">
+                How do we manage our projects?
+              </h1>
+              <p className="mt-4 leading-8 ">
+                We use JobTread, the leading construction management software,
+                so you can track and manage your project in one place. With
+                real-time updates, clear financial insights, and centralized
+                communication, JobTread simplifies your build from start to
+                finish.
+              </p>
+              <div className="mt-4 overflow-hidden">
+                <Image
+                  width={400}
+                  height={400}
+                  src={
+                    "https://images.squarespace-cdn.com/content/v1/64025cbc903531470f0036d6/d932df31-3838-418e-b199-2adea2c9ca4f/our_team_hero.jpg?format=2500w"
+                  }
+                />
+              </div>
+            </div>
+          </section>
+          <section className="mx-[20px] mt-20 flex flex-col gap-[12rem] z-1 pb-28">
+            <InfoSection />
+            <InfoSection title={"View Job Documents"} />
+            <InfoSection title={"Digitally Approve Work"} />
+          </section>
+          <section className="">
+            <div className="flex flex-col gap-6 px-8 py-10 text-center text-neutral-900 bg-neutral-200">
+              <h1 className="text-4xl font-medium leading-relaxed">
+                Using Your Client Portal
+              </h1>
+              <p className="leading-relaxed">
+                Watch the video below for a brief introduction on how you'd use
+                your client portal. Once you have signed on to build your
+                project, the Help Guide below will answer any additional
+                questions you may have.
+              </p>
+              <div
+                className="mt-4 video drop-shadow-xl"
                 style={{
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  width: "100%",
-                  height: "100%",
+                  position: "relative",
+                  paddingBottom: "56.25%" /* 16:9 */,
+                  paddingTop: 25,
+                  height: 0,
                 }}
-                src={`https://www.youtube.com/embed/yOh3R7Ts7dE?embed_config=%7B%22enc%22:%22AQ2SFqC0FdwZqDOXmryLa2zmD5jJHVm_woGPlGDkgiz6vZLyMcb6XBiRsarpatiyCToJEr64sEhJGAz3d8kVGk_uYBqHCBbfOf9elfT2B2dja6vit-v6_dnL5v5n1lG8TpmkDOADGl-ZMt4Y6ON-aK7t2HSJH5qZRGkXaPS9V22_yGq6%22%7D&errorlinks=1`}
-                frameBorder="0"
-              />
+              >
+                <iframe
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                  }}
+                  src={`https://www.youtube.com/embed/yOh3R7Ts7dE?embed_config=%7B%22enc%22:%22AQ2SFqC0FdwZqDOXmryLa2zmD5jJHVm_woGPlGDkgiz6vZLyMcb6XBiRsarpatiyCToJEr64sEhJGAz3d8kVGk_uYBqHCBbfOf9elfT2B2dja6vit-v6_dnL5v5n1lG8TpmkDOADGl-ZMt4Y6ON-aK7t2HSJH5qZRGkXaPS9V22_yGq6%22%7D&errorlinks=1`}
+                  frameBorder="0"
+                />
+              </div>
             </div>
-          </div>
+          </section>
         </section>
-      </section>
-    </>
+      </AnimatePresence>
+    </div>
   );
 }
 
 const Process = ({ title, description, imageUrl, hasBackground }) => {
   return (
-    <div className={`pt-10 ${hasBackground ? 'bg-neutral-200' : ''}`}>
+    <div className={`pt-10 ${hasBackground ? "bg-neutral-200" : ""}`}>
       <div className="text-neutral-900 px-[20px] flex flex-col gap-4">
         <h1 className="text-2xl font-semibold">{title}</h1>
         <p className="font-mulish">{description}</p>
@@ -143,8 +181,9 @@ Process.defaultProps = {
   Consultation, and any provided design inspirations and gives you
   a general idea of the financial commitment required for your
   project.`,
-  imageUrl: "https://st.hzcdn.com/simgs/pictures/bathrooms/modern-charm-spanish-master-suite-sato-architects-inc-img~34210e170b7739b5_14-3674-1-511f444.jpg",
-  hasBackground: false // Default value for hasBackground
+  imageUrl:
+    "https://st.hzcdn.com/simgs/pictures/bathrooms/modern-charm-spanish-master-suite-sato-architects-inc-img~34210e170b7739b5_14-3674-1-511f444.jpg",
+  hasBackground: false, // Default value for hasBackground
 };
 
 const InfoSection = ({ title, description, imageUrl }) => {

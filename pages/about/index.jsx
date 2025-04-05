@@ -8,7 +8,6 @@ import { translate, fadeUp, reveal, textFadeUp } from "@/animations/pageAnimatio
 import { MenuContext } from "@/components/layout/menuContext";
 
 function AboutPage(props) {
-  const { members, aboutPage } = props;
   const body = useRef(null);
 
   const { menuExited } = useContext(MenuContext);
@@ -54,7 +53,7 @@ function AboutPage(props) {
             <motion.div
               variants={reveal}
               initial="initial"
-              animate="animate"
+              animate={menuExited ? "animate" : "initial"}
               className="relative w-full h-full"
             >
               <Image

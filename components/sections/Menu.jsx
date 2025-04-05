@@ -37,8 +37,8 @@ export default function Menu() {
       x: "100%",
       transition: {
         delay: 0.5,
-        duration: 0.9,
-        ease: [0.22, 1, 0.36, 1],
+        duration: 0.5,
+        ease: [0.218, 1.022, 0.716, 0.99],
       },
     },
   };

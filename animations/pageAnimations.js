@@ -7,7 +7,7 @@ export const translate = {
     transition: {
       duration: 0.75,
       ease: [0.33, 1, 0.68, 1],
-      delay: 0.4,
+      delay: 0.2,
     },
   },
 };
@@ -23,7 +23,7 @@ export const fadeUp = {
     transition: {
       duration: 0.75,
       ease: [0.33, 1, 0.68, 1],
-      delay: 0.4,
+      delay: 0.2,
     },
   },
 };
@@ -39,7 +39,7 @@ export const reveal = {
     transition: {
       duration: 1.3,
       ease: [0.33, 1, 0.68, 1],
-      delay: 1.2,
+      delay: .8,
     },
   },
 };
