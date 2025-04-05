@@ -46,7 +46,6 @@ export function ContactForm() {
           { id: "phoneNumber", name: "contact.custom.22NQYSp3DCV8", label: "Phone Number", type: "tel" },
           { id: "projectAddress", name: "location.address", label: "Project Address", type: "text" },
           { id: "projectDetails", name: "account.custom.22NQvgadiVVq", label: "Project Details", type: "textarea" },
-          { id: "filesPhotos", name: "project.files", label: "Files & Photos", type: "file" },
         ].map(({ id, name, label, type }) => (
           <div key={id} className="relative text-[1.2rem]">
             {type === "textarea" ? (
