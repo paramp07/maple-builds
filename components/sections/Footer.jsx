@@ -16,93 +16,87 @@ export default function Footer() {
     const currentDate = new Date();
     return currentDate.getFullYear();
   }
+  const socialLinks = [
+    {
+      url: "https://www.instagram.com/maplebuilds",
+      icon: FaInstagram,
+      label: "Instagram",
+      text: "INSTAGRAM",
+    },
+    {
+      url: "https://www.facebook.com/maplebuilds",
+      icon: FaFacebook,
+      label: "Facebook",
+      text: "FACEBOOK",
+    },
+    {
+      url: "https://www.tiktok.com/@maplebuilds",
+      icon: IoLogoTiktok,
+      label: "TikTok",
+      text: "TIKTOK",
+    },
+    {
+      url: "https://www.youtube.com/@maplebuilds",
+      icon: AiFillYoutube,
+      label: "YouTube",
+      text: "YOUTUBE",
+    },
+  ];
 
   const currentYear = getCurrentYear();
 
   return (
-    <div>
-      <div className="bg-[#141414] text-neutral-200 py-0 lg:px-12 font-dmsans">
-        <div className="flex flex-col lg:flex-row py-[5rem] mx-[1.1rem] space-y-12 lg:space-y-0 space-x-0 lg:space-x-2">
-          <Image priority className="w-[159px]" src={MapleLogo} height={400} />
-          <div className="flex flex-col space-x-0 space-y-12 flex-[3] lg:space-x-2 md:space-y-0 md:flex-row">
-            <div className="flex-1">
-              <div className="w-full space-y-4 mt-7">
-                <CustomLink text="HOME" link="/" />
-                <CustomLink text="ABOUT" link="/about" />
-                <CustomLink text="PROCESS" link="/process" />
-                <CustomLink text="CONTACT" link="/contact" />
-                <CustomLink text="PORTFOLIO" link="/portfolio" />
+    <div
+      className="relative h-[620px]"
+      style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
+    >
+      <div className="bg-[#141414] text-neutral-200 fixed bottom-0 h-[620px] w-full py-0 lg:px-12 font-dmsans">
+        <div className="flex flex-col lg:flex-row py-[3rem] mx-[1.1rem] space-y-12 lg:space-y-0 space-x-0 lg:space-x-2">
+          <Image priority className="w-[120px]" src={MapleLogo} />
+          <div className="flex flex-col space-x-0flex-[3] space-y-[3rem] lg:space-x-2 md:space-y-0 md:flex-row">
+            <div className="flex space-x-2">
+              <div className="flex-1">
+                <div className="w-full space-y-2 ">
+                  <CustomLink text="HOME" link="/" />
+                  <CustomLink text="ABOUT" link="/about" />
+                  <CustomLink text="PROCESS" link="/process" />
+                  <CustomLink text="CONTACT" link="/contact" />
+                  <CustomLink text="PORTFOLIO" link="/portfolio" />
+                </div>
+              </div>
+              <div className="flex-1">
+                <div className="w-full space-y-2 uppercase">
+                  {socialLinks.map((item, index) => (
+                    <CustomLink key={index} text={item.label} link={item.url} />
+                  ))}
+                </div>
               </div>
             </div>
-            <div className="flex-1">
-              <div className="space-y-4 mt-7">
-                <CustomLink
-                  text="CUSTOM HOMES"
-                  link="/portfolio/custom-homes"
-                />
-                <CustomLink text="REMODELS" link="/portfolio/remodels" />
-              </div>
-            </div>
-            <div className="flex-1">
-              <div className="space-y-2 tracking-wide mt-7">
+
+            <div className="flex-1 ">
+              <div className="space-y-2 text-[.9rem] text-white/30 tracking-wide">
                 <Link className="" href="mailto:hello@maplebuilds.com">
                   hello@maplebuilds.com
                 </Link>
                 <p>512 598-6491</p>
-                <p>www.maplebuilds.com</p>
               </div>
-            </div>
-          </div>
-
-          <div className="flex-[1] space-y-7">
-            <h3 className="font-bold tracking-wide text-[1.5rem]">
-              Request Pricing
-            </h3>
-            <div className="space-y-5 tracking-wide">
-              <p>
-                We would love to assist you with any questions you may have.
-              </p>
-              <button
-                type="button"
-                className="text-gray-800 bg-gray-100 tracking-wide duration-200 hover:bg-gray-200 font-medium text-md px-6 py-2.5 me-2 mb-2 dark:bg-gray-600 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
-              >
-                <Link href="/contact">Get In Touch With Us</Link>
-              </button>
             </div>
           </div>
         </div>
         <hr className="h-[1px] border-white/10"></hr>
 
-        <div className="flex flex-col items-center justify-between py-4 space-y-6 text-sm text-center lg:space-y-0 lg:text-left lg:flex-row text-white/40">
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
-          >
-            <div className="flex flex-col">
-              <p>Copyright © 2024 Maple Builds</p>
-              <p>
-                Website by{" "}
-                <Link
-                  href="https://github.com/paramp07"
-                  className="font-bold underline"
-                >
-                  Param Patel
-                </Link>
-              </p>
-            </div>
-            <div className="mx-4 lg:mx-0">
-              <ul className="flex justify-center">
-                <li className="pr-4 ">
-                  <Link href={"/info/privacy-policy"}>Privacy Policy</Link>
-                </li>
-                <li className="pl-4 pr-4 border-l border-white/20">
-                  <Link href={"/info/terms"}>Terms and Conditions</Link>
-                </li>
-              </ul>
-            </div>
-          </motion.div>
+        <div className="mx-[1.1rem] py-4 text-[.8rem] text-white/40">
+          <div className="flex flex-col">
+            <p>Copyright © {getCurrentYear()} Maple Builds</p>
+            <p>
+              Website by{" "}
+              <Link href="https://github.com/paramp07" className="font-bold">
+                Param Patel
+              </Link>
+            </p>
+            <Link href="/info/privacy-policy">Privacy Policy</Link>
+            <Link href="/info/terms">Terms and Conditions</Link>
+          </div>
         </div>
       </div>
     </div>
@@ -135,19 +129,10 @@ function CustomLink({ text, link }) {
       onMouseLeave={() => setIsHovered(false)}
       className="flex items-center justify-between gap-4 duration-300 group"
     >
-      <span className="flex items-center">
-        <p className="text-[1.5rem]  tracking-wide ml-0 duration-200 tracking-[0.175em] group-hover:ml-[5px] group-hover:text-neutral-500">
+      <span className="flex items-center font-bold">
+        <p className="text-[.9rem]  tracking-wide ml-0 duration-200 tracking-[0.175em] group-hover:ml-[5px] group-hover:text-neutral-500">
           {text}
         </p>
-      </span>
-      <span className="flex items-center">
-        <ArrowUpRight
-          size={35}
-          strokeWidth={1}
-          className={`duration-300 ${
-            isHovered ? "text-gray-500" : "text-gray-300"
-          }`}
-        />
       </span>
     </Link>
   );
