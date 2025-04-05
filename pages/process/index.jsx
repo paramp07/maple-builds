@@ -31,6 +31,7 @@ export default function ProcessPage(props) {
             quality={100}
             width={1920}
             height={1080}
+            priority
             src={
               "https://st.hzcdn.com/simgs/pictures/bathrooms/modern-charm-spanish-master-suite-sato-architects-inc-img~34210e170b7739b5_14-3674-1-511f444.jpg"
             }

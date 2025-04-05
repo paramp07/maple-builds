@@ -31,6 +31,7 @@ function Portfolio(props) {
             className="object-cover w-full mt-10 h-[100svh]"
             alt="image"
             quality={100}
+            priority
             width={1920}
             height={1080}
             src={

@@ -7,11 +7,12 @@ const MenuContext = createContext();
 const MenuProvider = ({ children }) => {
   // State to manage the menu open/close status
   const [open, setOpen] = useState(false);
+  const [menuExited, setMenuExited] = useState(true);
 
   return (
-    <MenuContext.Provider value={{ open, setOpen }}>
-      {children}
-    </MenuContext.Provider>
+    <MenuContext.Provider value={{ open, setOpen, menuExited, setMenuExited }}>
+    {children}
+  </MenuContext.Provider>
   );
 };
 

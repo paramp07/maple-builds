@@ -5,9 +5,10 @@ import {
   AnimatePresence,
   m,
 } from "framer-motion";
-import { MenuContext } from "../layout/menuContext";
+import { MenuContext } from "@/components/layout/menuContext";
 import { useContext, useState } from "react";
 import Link from "next/link";
+import { useRouter } from 'next/navigation'; // for App Router
 
 
 const navLinks = [
@@ -18,7 +19,7 @@ const navLinks = [
   { title: "Contact", href: "/contact" },
 ];
 export default function Menu() {
-  const { open, setOpen } = useContext(MenuContext);
+  const { open, setOpen, setMenuExited } = useContext(MenuContext);
   
 
   const menuVars = {
@@ -36,7 +37,7 @@ export default function Menu() {
       x: "100%",
       transition: {
         delay: 0.5,
-        duration: 0.7,
+        duration: 0.9,
         ease: [0.22, 1, 0.36, 1],
       },
     },
@@ -65,7 +66,7 @@ export default function Menu() {
   };
 
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait">
       {open && (
         <motion.div
           variants={menuVars}
@@ -73,6 +74,18 @@ export default function Menu() {
           animate="animate"
           exit="exit"
           className="fixed font-manrope top-0 left-0 w-full h-screen p-6 text-neutral-200 origin-top bg-neutral-900 z-[9]"
+          onAnimationStart={(def) => {
+            if (def === "exit") {
+              console.log("Menu exit started");
+              setMenuExited(false);
+            }
+          }}
+          onAnimationComplete={(def) => {
+            if (def === "exit") {
+              console.log("Menu exit completed");
+              setMenuExited(true);
+            }
+          }}
         >
           <div className="flex flex-col h-full">
             <motion.div
