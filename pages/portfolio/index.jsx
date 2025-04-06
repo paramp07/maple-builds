@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { NextSeo } from "next-seo";
 import { ProjectsGallery } from "@/components/component/projects-gallery";
 import {
@@ -7,7 +7,6 @@ import {
   getAllRemodels,
   getRemodelsPage,
 } from "@/src/app/lib/sanity";
-import { useContext } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { MenuContext } from "@/components/layout/menuContext";
 import {
@@ -20,6 +19,16 @@ import {
 function Portfolio(props) {
   const { projects, remodelsPage } = props;
   const { menuExited } = useContext(MenuContext);
+  const [shouldAnimate, setShouldAnimate] = useState(false);
+
+  useEffect(() => {
+    if (menuExited) {
+      setShouldAnimate(true);
+    }
+  }, [menuExited]);
+
+  console.log('Render - menuExited:', menuExited, 'shouldAnimate:', shouldAnimate);
+
   const SEO = {
     title: "Portfolio",
     description: "Portfolio for Maple Builds",
@@ -37,7 +46,7 @@ function Portfolio(props) {
                 <motion.h2
                   variants={translate}
                   initial="initial"
-                  animate={menuExited ? "animate" : "initial"}
+                  animate={shouldAnimate ? "animate" : "initial"}
                   className="overflow-hidden uppercase text-neutral-600"
                 >
                   Take a look at our work
@@ -47,7 +56,7 @@ function Portfolio(props) {
                 <motion.h1
                   variants={fadeUp}
                   initial="initial"
-                  animate={menuExited ? "animate" : "initial"}
+                  animate={shouldAnimate ? "animate" : "initial"}
                   className="text-6xl mt-3  font-semibold text-neutral-800 tracking-[-4px]"
                 >
                   Our Portfolio
@@ -60,7 +69,7 @@ function Portfolio(props) {
               <motion.div
                 variants={reveal}
                 initial="initial"
-                animate={menuExited ? "animate" : "initial"}
+                animate={shouldAnimate ? "animate" : "initial"}
                 className="relative w-full h-full"
               >
                 <Image

@@ -1,7 +1,7 @@
 import { ContactForm } from "@/components/component/contact-form";
 import { Mail, Phone } from "lucide-react";
 import Image from "next/image";
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import {
   AnimatePresence,
   motion,
@@ -19,7 +19,16 @@ import { useRef } from "react";
 
 export default function ContactPage() {
   const { menuExited } = useContext(MenuContext);
+  const [shouldAnimate, setShouldAnimate] = useState(false);
   const container = useRef(null);
+
+  useEffect(() => {
+    if (menuExited) {
+      setShouldAnimate(true);
+    }
+  }, [menuExited]);
+
+  console.log('Render - menuExited:', menuExited, 'shouldAnimate:', shouldAnimate);
 
   const { scrollYProgress } = useScroll({
     target: container,
@@ -39,7 +48,7 @@ export default function ContactPage() {
                   <motion.h2
                     variants={translate}
                     initial="initial"
-                    animate={menuExited ? "animate" : "initial"}
+                    animate={shouldAnimate ? "animate" : "initial"}
                     className="overflow-hidden uppercase text-neutral-600"
                   >
                     Lets get in touch
@@ -49,7 +58,7 @@ export default function ContactPage() {
                   <motion.h1
                     variants={fadeUp}
                     initial="initial"
-                    animate={menuExited ? "animate" : "initial"}
+                    animate={shouldAnimate ? "animate" : "initial"}
                     className="text-6xl mt-3  font-semibold text-neutral-800 tracking-[-4px]"
                   >
                     Contact Us
@@ -61,7 +70,7 @@ export default function ContactPage() {
           <motion.section
             variants={textFadeUp}
             initial="initial"
-            whileInView={menuExited ? "animate" : "initial"}
+            whileInView={shouldAnimate ? "animate" : "initial"}
             viewport={{ once: true }}
             className="w-[90%] mt-28 mx-auto text-lg flex-col flex gap-6"
           >
@@ -101,7 +110,7 @@ export default function ContactPage() {
             <motion.div
               variants={reveal}
               initial="initial"
-              animate={menuExited ? "animate" : "initial"}
+              animate={shouldAnimate ? "animate" : "initial"}
               ref={container}
               className="relative overflow-hidden aspect-[5/7]"
             >

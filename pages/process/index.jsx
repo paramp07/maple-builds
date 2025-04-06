@@ -4,7 +4,7 @@ import { getProcessPage, getProcesses } from "@/src/app/lib/sanity";
 import { urlFor } from "@/src/app/lib/urlFor";
 import { NextSeo } from "next-seo";
 import Image from "next/image";
-import { useContext, useRef } from "react";
+import { useContext, useRef, useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { MenuContext } from "@/components/layout/menuContext";
 import {
@@ -14,13 +14,22 @@ import {
   textFadeUp,
 } from "@/animations/pageAnimations";
 
-export default function ProcessPage(props) {
-  const body = useRef(null);
-  const { processPage, processes } = props;
+export default function ProcessPage() {
   const { menuExited } = useContext(MenuContext);
+  const [shouldAnimate, setShouldAnimate] = useState(false);
+  const body = useRef(null);
+
+  useEffect(() => {
+    if (menuExited) {
+      setShouldAnimate(true);
+    }
+  }, [menuExited]);
+
+  console.log('Render - menuExited:', menuExited, 'shouldAnimate:', shouldAnimate);
+
   const SEO = {
     title: "Process",
-    description: "Learn about our Process",
+    description: "Our Process at Maple Builds",
   };
 
   return (
@@ -34,7 +43,7 @@ export default function ProcessPage(props) {
                 <motion.h2
                   variants={translate}
                   initial="initial"
-                  animate={menuExited ? "animate" : "initial"}
+                  animate={shouldAnimate ? "animate" : "initial"}
                   className="overflow-hidden uppercase text-neutral-600"
                 >
                   How we do things
@@ -44,7 +53,7 @@ export default function ProcessPage(props) {
                 <motion.h1
                   variants={fadeUp}
                   initial="initial"
-                  animate={menuExited ? "animate" : "initial"}
+                  animate={shouldAnimate ? "animate" : "initial"}
                   className="text-6xl mt-3  font-semibold text-neutral-800 tracking-[-4px]"
                 >
                   Our Process
@@ -57,7 +66,7 @@ export default function ProcessPage(props) {
               <motion.div
                 variants={reveal}
                 initial="initial"
-                animate={menuExited ? "animate" : "initial"}
+                animate={shouldAnimate ? "animate" : "initial"}
                 className="relative w-full h-full"
               >
                 <Image

@@ -6,13 +6,20 @@ import Head from "next/head";
 import { motion, AnimatePresence } from "framer-motion";
 import { translate, fadeUp, reveal, textFadeUp } from "@/animations/pageAnimations";
 import { MenuContext } from "@/components/layout/menuContext";
+import { useRouter } from 'next/router';
 
 function AboutPage(props) {
   const body = useRef(null);
-
   const { menuExited } = useContext(MenuContext);
+  const [shouldAnimate, setShouldAnimate] = useState(false);
 
+  useEffect(() => {
+    if (menuExited) {
+      setShouldAnimate(true);
+    }
+  }, [menuExited]);
 
+  console.log('Render - menuExited:', menuExited, 'shouldAnimate:', shouldAnimate);
 
   const SEO = {
     title: "About",
@@ -32,7 +39,8 @@ function AboutPage(props) {
               <motion.h2
                 variants={translate}
                 initial="initial"
-                animate={menuExited ? "animate" : "initial"}
+                animate={shouldAnimate ? "animate" : "initial"}
+                
                 className="overflow-hidden font-thin uppercase text-neutral-600"
               >
                 Unique tailored service
@@ -42,7 +50,7 @@ function AboutPage(props) {
               <motion.h1
                 variants={fadeUp}
                 initial="initial"
-                animate={menuExited ? "animate" : "initial"}
+                animate={shouldAnimate ? "animate" : "initial"}
                 className="text-6xl mt-3  font-semibold text-neutral-800 tracking-[-4px]"
               >
                 About Us
@@ -53,7 +61,7 @@ function AboutPage(props) {
             <motion.div
               variants={reveal}
               initial="initial"
-              animate={menuExited ? "animate" : "initial"}
+              animate={shouldAnimate ? "animate" : "initial"}
               className="relative w-full h-full"
             >
               <Image
