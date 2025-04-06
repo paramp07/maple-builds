@@ -381,7 +381,7 @@ const DualImageDisplay = () => {
     offset: ["start end", "end start"]
   });
 
-  const y1 = useTransform(scrollYProgress, [0, 1], ["-20%", "40%"]);
+  const y1 = useTransform(scrollYProgress, [0, 1], ["-20%", "30%"]);
   const y2 = useTransform(scrollYProgress, [0, 1], ["-60%", "10%"]);
 
   return (
